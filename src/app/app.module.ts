@@ -12,6 +12,8 @@ import { ResponseGroupEditorComponent } from './response-group-editor/response-g
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { LocationComponent } from './location/location.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     DashboardModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-	AgmCoreModule.forRoot({
+	  AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCSIFuXPQXel1splGkx5ElXoU1bL60Jn-I'
     })
   ],
