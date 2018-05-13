@@ -12,6 +12,8 @@ import { ResponseGroupEditorComponent } from './response-group-editor/response-g
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { LocationComponent } from './location/location.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
