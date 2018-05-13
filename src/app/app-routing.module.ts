@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ResponseGroupEditorComponent } from './response-group-editor/response-group-editor.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { LocationComponent } from './location/location.component';
 
 const routes: Routes = [
     {
@@ -17,6 +17,10 @@ const routes: Routes = [
     {
         path: 'responseGrpEdit',
         component: ResponseGroupEditorComponent
+    },
+    {
+        path: 'location',
+        component: LocationComponent
     }
 ];
 

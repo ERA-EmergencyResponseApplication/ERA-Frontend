@@ -10,13 +10,16 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ResponseGroupEditorComponent } from './response-group-editor/response-group-editor.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { LocationComponent } from './location/location.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    ResponseGroupEditorComponent
+    ResponseGroupEditorComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,10 @@ import { DashboardModule } from './dashboard/dashboard.module';
     HttpModule,
     DataTableModule,
     AppRoutingModule,
-    DashboardModule
+    DashboardModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCSIFuXPQXel1splGkx5ElXoU1bL60Jn-I'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
