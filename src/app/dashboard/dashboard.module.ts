@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { DashboardComponent } from './dashboard.component'
 import { DataTableModule } from 'primeng/datatable';
+import { EmergenciesComponent } from './emergencies/emergencies.component';
+import { EmergencyComponent } from './emergencies/emergency/emergency.component';
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    EmergenciesComponent,
+    EmergencyComponent
   ],
   imports: [
     BrowserModule,
