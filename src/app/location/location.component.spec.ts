@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LocationComponent } from './location.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('LocationComponent', () => {
   let component: LocationComponent;
@@ -8,7 +9,8 @@ describe('LocationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LocationComponent ]
+      declarations: [ LocationComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
