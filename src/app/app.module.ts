@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ResponseGroupEditorComponent } from './response-group-editor/response-group-editor.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     HttpModule,
     DataTableModule,
     AppRoutingModule,
-    DashboardModule
+    DashboardModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
