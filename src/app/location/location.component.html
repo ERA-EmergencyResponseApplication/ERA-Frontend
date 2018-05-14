@@ -24,15 +24,17 @@
     </div>
     <div style="margin-top: 30px;">
         <label>Emergency</label>
-        <!-- <p-selectButton [options]="emergencies" [(ngModel)]="selectedCountry">
+        <div style="margin-top: 15px; margin-left: 30px;">
+          <p-selectButton [options]="emergencies" [(ngModel)]="selectedCountry">
             <ng-template let-item>
-                <div style="padding: .5em 1em">
-                    <img style="vertical-align: middle; margin-right: .5em" src="assets/icons/{{item.flag}}" height="20px"/>
-                    <span>{{item.name}}</span>
-                </div>
+              <div style="padding: .5em 1em">
+                <img style="vertical-align: middle; margin-right: .5em" src="assets/icons/{{item.flag}}" height="20px" />
+                <span>{{item.name}}</span>
+              </div>
             </ng-template>
-        </p-selectButton> -->
-        <p-dropdown [options]="emergencies" [(ngModel)]="selectedCity" placeholder="Emergency Type" optionLabel="name" [showClear]="true"></p-dropdown>
+          </p-selectButton>
+        </div>     
+        <!--<p-dropdown [options]="emergencies" [(ngModel)]="selectedCity" placeholder="Emergency Type" optionLabel="name" [showClear]="true"></p-dropdown>-->
     </div>
     <div>
         <button class="btn btn-primary" style="margin-top: 50px;">Share Location</button>

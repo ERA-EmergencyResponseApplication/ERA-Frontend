@@ -33,9 +33,9 @@ export class LocationComponent implements OnInit {
   ];
 
     this.emergencies = [
-      {name: 'Medical', code: 'Med'},
-      {name: 'Fire Hazard', code: 'Fire'},
-      {name: 'Public Safety', code: 'public'}
+      {name: 'Medical', flag: 'Med.png'},
+      { name: 'Fire Hazard', flag: 'Fire.png'},
+      { name: 'Public Safety', flag: 'PublicSafety.png'}
     ];
   }
 
