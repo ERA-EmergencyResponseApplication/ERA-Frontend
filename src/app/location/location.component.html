@@ -1,52 +1,39 @@
-<!-- <h1 style="text-align: center; margin-bottom: 0px;"> Your current location<h1>
-  <div class="col-md-12 col-lg-12" style="margin-top:30px;">
-    <div class="col-md-8 col-lg-8"> 
-        <agm-map style="height:300px;" [zoom]='19' [latitude]="lat" [longitude]="lng">
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-          </agm-map>        
-    </div>
-    <div id="LocDet" class="col-md-4 col-lg-4" style="margin-top: 30px;">
-      <p>Location Details</p>
-      <textarea rows="10" cols="40"></textarea>
-    </div>
-  </div>
-  <div>
-    <button class="btn btn-primary" style="margin-top: 50px;">Share Location</button>
-  </div> -->
 
 <div>
-  <div class="container-fluid" style="text-align: center; margin-top: 50px;">
-    <div>
+  <div class="container-fluid" style="text-align: center; margin-top: 30px;">
+    <div *ngIf="success" class="alert alert-success" role="alert">
+      {{AlertMsg}}
+    </div>
+    <div style="margin-top: 20px;">
       <label>Response Area</label>
-      <p-autoComplete [(ngModel)]="brand" [suggestions]="filteredAreas" (completeMethod)="filterAreas($event)" [size]="30"
-      [minLength]="1" placeholder="">
-      </p-autoComplete> 
+      <p-autoComplete [(ngModel)]="area" [suggestions]="filteredAreas" (completeMethod)="filterAreas($event)" [size]="30"
+                      [minLength]="1" placeholder="">
+      </p-autoComplete>
     </div>
     <div style="margin-top: 30px;">
-        <label>Emergency</label>
-        <div style="margin-top: 15px; margin-left: 30px;">
-          <p-selectButton [options]="emergencies" [(ngModel)]="selectedCountry">
-            <ng-template let-item>
-              <div style="padding: .5em 1em">
-                <img style="vertical-align: middle; margin-right: .5em" src="assets/icons/{{item.flag}}" height="20px" />
-                <span>{{item.name}}</span>
-              </div>
-            </ng-template>
-          </p-selectButton>
-        </div>     
-        <!--<p-dropdown [options]="emergencies" [(ngModel)]="selectedCity" placeholder="Emergency Type" optionLabel="name" [showClear]="true"></p-dropdown>-->
+      <label>Emergency</label>
+      <div style="margin-top: 15px; margin-left: 30px;">
+        <p-selectButton [options]="emergencies" [(ngModel)]="selectedEmergency">
+          <ng-template let-item>
+            <div style="padding: .5em 1em">
+              <img style="vertical-align: middle; margin-right: .5em" src="assets/icons/{{item.flag}}" height="20px" />
+              <span>{{item.name}}</span>
+            </div>
+          </ng-template>
+        </p-selectButton>
+      </div>
     </div>
     <div>
-        <button class="btn btn-primary" style="margin-top: 50px;">Share Location</button>
+      <button class="btn btn-primary" style="margin-top: 50px;" (click)=SendLoc() [disabled]="!EmCreate">Share Location</button>
     </div>
-    <div>
-        <div style="margin-top: 30px;">
-            <div><label>Location Details</label></div>
-            <textarea rows="5" cols="25"></textarea>
-        </div>      
-        <div>
-            <button class="btn btn-primary" style="margin-top: 30px;">Update</button>
-        </div> 
-    </div>   
+    <div *ngIf="addDet">
+      <div style="margin-top: 30px;">
+        <div><label>Location Details</label></div>
+        <textarea rows="5" cols="25" [(ngModel)]="LocDet"></textarea>
+      </div>
+      <div>
+        <button class="btn btn-primary" style="margin-top: 30px;" (click)=UpdAlert()>Update</button>
+      </div>
+    </div>
   </div>
 </div>
