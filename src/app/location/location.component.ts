@@ -17,6 +17,8 @@ export class LocationComponent implements OnInit {
   addDet: boolean;
   EmCreate: boolean;
   AlertMsg: string;
+  missingArea: string;
+  missingType: string;
 
   filteredAreas: any[];
   areas: string[] = ['Cincinnati','West Chester','Dayton','Fairfield','Cliffton'];
@@ -52,11 +54,28 @@ export class LocationComponent implements OnInit {
   }
 
   SendLoc() {
-    this.emergencyDet = new Emergency(this.lat, this.lng, this.selectedEmergency, this.LocDet, new Date());
-    this.success = true;
-    this.addDet = true;
-    this.EmCreate = false;
-    this.AlertMsg = "Emergency Alert sent successfully!";
+    if (this.fieldsValid()) {
+      this.emergencyDet = new Emergency(this.lat, this.lng, this.selectedEmergency, this.area, new Date());
+      this.success = true;
+      this.addDet = true;
+      this.EmCreate = false;
+      this.AlertMsg = "Emergency Alert sent successfully!";
+    }   
+  }
+
+  fieldsValid() {
+    let nv = 1;
+    this.missingArea = "";
+    this.missingType = "";
+    if (this.area == null) {
+      nv = 0;
+      this.missingArea = "Response Area required";
+    }
+    if (this.selectedEmergency == null) {
+      nv = 0;
+      this.missingType = "Emergency Type required";
+    }
+    return nv;
   }
 
   UpdAlert() {

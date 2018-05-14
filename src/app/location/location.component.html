@@ -1,6 +1,6 @@
 
 <div>
-  <div class="container-fluid" style="text-align: center; margin-top: 30px;">
+  <div class="container-fluid" style="text-align: center; margin-top: 20px;">
     <div *ngIf="success" class="alert alert-success" role="alert">
       {{AlertMsg}}
     </div>
@@ -9,6 +9,7 @@
       <p-autoComplete [(ngModel)]="area" [suggestions]="filteredAreas" (completeMethod)="filterAreas($event)" [size]="30"
                       [minLength]="1" placeholder="">
       </p-autoComplete>
+      <p class="errorMsg">{{missingArea}}</p>
     </div>
     <div style="margin-top: 30px;">
       <label>Emergency</label>
@@ -21,6 +22,7 @@
             </div>
           </ng-template>
         </p-selectButton>
+        <p class="errorMsg">{{missingType}}</p>
       </div>
     </div>
     <div>
