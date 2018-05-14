@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DataTableModule } from 'primeng/datatable';
+import { PanelModule } from 'primeng/panel';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +43,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     AutoCompleteModule,
     RadioButtonModule,
     SelectButtonModule,
+    PanelModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
 	  AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCSIFuXPQXel1splGkx5ElXoU1bL60Jn-I'
