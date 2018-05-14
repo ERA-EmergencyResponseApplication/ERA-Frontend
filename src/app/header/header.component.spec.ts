@@ -42,7 +42,7 @@ describe('HeaderComponent', () => {
 
   it('should create', () => {
       expect(component).toBeTruthy();
-      expect(routerLinks.length).toBe(2, 'should have 2 routerLinks');
+      expect(routerLinks.length).toBe(3, 'should have 3 routerLinks');
   });
 
 });
