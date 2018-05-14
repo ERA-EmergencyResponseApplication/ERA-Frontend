@@ -2,23 +2,18 @@
     <div class="container-fluid">
         <a class="navbar-brand" routerLink = "/">Emergency Response</a>
         <div class="nav navbar-collapse">
-            <ul class="nav navbar-nav" style="float: none;">
-                <li>
-                    <a routerLink = "/Rescues" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-                        Rescues
-                    </a>
-                </li>
+            <ul class="nav navbar-nav" style="float: none;">           
                 <li style="float:right;">
                   <a routerLink = "/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span class="badge">0</span>
                   </a>
+                </li>
+                <li style="float:right;">
+                  <a routerLink="/location" style="padding-top: 0px; padding-bottom: 0px;">
+                    <img src="../../assets/icons/AlertHeader.png">
+                  </a>
                 </li>               
-                <!-- <li>
-                    <a routerLink = "/responseGrpEdit" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-                      Edit Response Group
-                    </a>
-                </li>  -->
             </ul>
         </div>
     </div>
