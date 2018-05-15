@@ -1,0 +1,19 @@
+<p-panel header="Response Area" [toggleable]="true" [style]="{'margin-bottom':'20px'}">
+  <div class="col-sm-12 col-md-12 col-lg-12" style="margin-top: 30px;">
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <label>City</label>
+      <input type="text" class="form-control" />
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <label>Zip</label>
+      <input type="text" class="form-control" />
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-12 col-lg-12" style="margin-top: 15px; margin-bottom: 30px;">
+    <div class="col-sm-6 col-md-6 col-lg-6" style="margin-left: 25%;">
+      <label style="display: block">Description</label>
+      <textarea rows="5" cols="50" pInputTextarea></textarea>
+    </div>
+  </div>
+  <button pButton type="button" icon="fa-plus" label="Add" class="ui-button-info" style="margin-bottom: 15px;" (click)=AddResArea()></button>
+</p-panel>
