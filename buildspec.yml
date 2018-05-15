@@ -19,11 +19,11 @@ phases:
   build:
     commands:
        - ng build --prod --aot
+       - npm run cbtest
       # - command
 
   post_build:
     commands:
-      - npm run cbtest
        # - aws s3 cp --recursive --acl public-read ./dist/ s3://eraclient/ 
       # - command
 
