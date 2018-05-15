@@ -27,6 +27,8 @@ import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
 import { CodeHighlighterModule } from 'primeng/codehighlighter';
 import { PasswordModule } from 'primeng/password';
+import { ResponseAreaComponent } from './response-area/response-area.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { PasswordModule } from 'primeng/password';
     HeaderComponent,
     HomeComponent,
     ResponseGroupEditorComponent,
-    LocationComponent
+    LocationComponent,
+    ResponseAreaComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { PasswordModule } from 'primeng/password';
     ButtonModule,
     TabViewModule,
     CodeHighlighterModule,
-    PasswordModule
+    PasswordModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
