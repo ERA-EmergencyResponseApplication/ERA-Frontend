@@ -15,15 +15,15 @@ phases:
 
   pre_build:
     commands:
-      - npm run cbtest
       # - command
   build:
     commands:
        - ng build --prod --aot
-      
       # - command
+
   post_build:
     commands:
+      - npm run cbtest
        # - aws s3 cp --recursive --acl public-read ./dist/ s3://eraclient/ 
       # - command
 
