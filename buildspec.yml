@@ -1,0 +1,39 @@
+version: 0.2
+#env:
+  #variables:
+     # key: "value"
+     # key: "value"
+
+  #parameter-store:
+     # key: "value"
+     # key: "value"
+
+phases:
+  install:
+    commands:
+      - npm install && npm install -g @angular/cli
+
+  pre_build:
+    commands:
+       - npm cbtest
+      # - command
+  build:
+    commands:
+       - ng build --prod --aot
+      
+      # - command
+  post_build:
+    commands:
+       # - aws s3 cp --recursive --acl public-read ./dist/ s3://eraclient/ 
+      # - command
+
+artifacts:
+  files:
+     - '**/*'
+    # - location
+  discard-paths: no
+  base-directory: dist
+
+#cache:
+  #paths:
+    # - paths
