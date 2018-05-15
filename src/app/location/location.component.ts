@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Emergency } from '../dashboard/emergencies/emergency/Emergency';
+import { ResponseArea } from '../dashboard/ResponseArea';
+import { ResponseAreaService } from '../dashboard/ResponseArea.service';
 
 @Component({
   selector: 'app-location',
@@ -21,12 +23,12 @@ export class LocationComponent implements OnInit {
   missingType: string;
 
   filteredAreas: any[];
-  areas: string[] = ['Cincinnati', 'West Chester', 'Dayton', 'Fairfield', 'Cliffton'];
+  areas: ResponseArea[];
   area: string;
   emergencies: any[];
   emergencyDet: Emergency;
 
-  constructor() {
+  constructor(private _responseArea: ResponseAreaService) {
     if (navigator) {
       navigator.geolocation.getCurrentPosition(pos => {
         this.lng = +pos.coords.longitude;
@@ -36,23 +38,16 @@ export class LocationComponent implements OnInit {
     this.success = false;
     this.addDet = false;
     this.EmCreate = true;
+
+    this.areas = _responseArea.getResponseAreas();
+
     this.emergencies = [
       { name: 'Medical', flag: 'Med.png'},
       { name: 'Fire Hazard', flag: 'Fire.png'},
       { name: 'Public Safety', flag: 'PublicSafety.png'}
     ];
   }
-
-  filterAreas(event) {
-    this.filteredAreas = [];
-    for (let i = 0; i < this.areas.length; i++) {
-      const area = this.areas[i];
-      if (area.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
-          this.filteredAreas.push(area);
-      }
-    }
-  }
-
+  
   SendLoc() {
     if (this.fieldsValid()) {
       this.emergencyDet = new Emergency(this.lat, this.lng, this.selectedEmergency, this.area, new Date());
@@ -84,5 +79,4 @@ export class LocationComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
