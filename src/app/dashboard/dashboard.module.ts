@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard.component'
 import { DataTableModule } from 'primeng/datatable';
 import { EmergenciesComponent } from './emergencies/emergencies.component';
 import { EmergencyComponent } from './emergencies/emergency/emergency.component';
+import { ResponseAreaService } from './ResponseArea.service';
+import { EmergenciesService } from './emergencies/emergencies.service';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,6 @@ import { EmergencyComponent } from './emergencies/emergency/emergency.component'
     DataTableModule
   ],
   exports: [],
-  providers: []
+  providers: [ResponseAreaService, EmergenciesService]
 })
 export class DashboardModule { }

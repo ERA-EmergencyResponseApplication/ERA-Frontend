@@ -1,3 +1,14 @@
-<p>
-  emergency works!
-</p>
+<a style="cursor: pointer;" class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">
+      {{ emergency.location }}
+    </h4>
+    <p class="list-group-item-text">
+      {{ emergency.startDate }}
+    </p>
+  </div>
+
+  <span class="pull-right">
+    <h4>{{ emergency.type }}</h4>
+  </span>
+</a>
