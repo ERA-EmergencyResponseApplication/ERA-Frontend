@@ -1,5 +1,5 @@
-import { Emergency } from "./emergencies/Emergency";
-import { Responder } from "./Responder";
+import { Emergency } from './emergencies/Emergency';
+import { Responder } from './Responder';
 
 export class ResponseArea {
     name: string;

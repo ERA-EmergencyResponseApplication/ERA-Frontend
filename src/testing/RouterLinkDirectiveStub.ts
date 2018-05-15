@@ -1,18 +1,19 @@
-import { Directive, Input } from "@angular/core";
+import { Directive, Input, HostListener } from '@angular/core';
 
 // export for convenience.
 export { RouterLink} from '@angular/router';
 
 /* tslint:disable:directive-class-suffix */
 @Directive({
-    selector: '[routerLink]',
-    host: { '(click)': 'onClick()' }
+    // tslint:disable-next-line:directive-selector
+    selector: '[routerLink]'
   })
   export class RouterLinkDirectiveStub {
-    @Input('routerLink') linkParams: any;
     navigatedTo: any = null;
-  
-    onClick() {
+    // tslint:disable-next-line:no-input-rename
+    @Input('routerLink') linkParams: any;
+
+    @HostListener('click') onclick() {
       this.navigatedTo = this.linkParams;
     }
   }
