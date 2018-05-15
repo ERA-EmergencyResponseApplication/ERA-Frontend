@@ -1,3 +1,13 @@
-<p>
-  emergencies works!
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          {{ respArea.name }}
+      </div>
+      <div class="panel-body">
+          <app-emergency *ngFor="let emergency of emergencies" [emergency]=emergency>
+          </app-emergency>
+      </div>
+    </div>
+  </div>
+</div>

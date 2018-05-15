@@ -1,4 +1,4 @@
-import { Emergency } from './emergencies/Emergency';
+import { Emergency } from './emergencies/emergency/Emergency';
 import { Responder } from './Responder';
 
 export class ResponseArea {
@@ -6,10 +6,10 @@ export class ResponseArea {
     lat: any;
     lon: any;
     description: string;
-    emergencies: Emergency[];
+    emergencies: Emergency[] = [];
     ownedBy: Responder;
-    admins: Responder[];
-    subscribers: Responder[];
+    admins: Responder[] = [];
+    subscribers: Responder[] = [];
 
     constructor(name: string, lat: any, lon: any, description: string, owner: Responder) {
         this.name = name;
@@ -25,5 +25,9 @@ export class ResponseArea {
 
     public addSubscriberToEmergency(responder: Responder) {
         this.subscribers.push(responder);
+    }
+
+    public addEmergency( emergency : Emergency ) {
+        this.emergencies.push(emergency);
     }
 }
