@@ -1,5 +1,14 @@
+<div class="page-header">
+  <h2>Emergencies in your location</h2>
+</div>
+
 <div class="row">
-  <div class="col-md-6">
-    <app-emergencies></app-emergencies>
+  <div class="col-md-5">
+    <app-emergencies *ngFor="let responseArea of responseAreas"
+    [respArea]="responseArea">
+    </app-emergencies> 
+  </div>
+  <div class="col-md-7">
+    <!-- <router-outlet></router-outlet> -->
   </div>
 </div>

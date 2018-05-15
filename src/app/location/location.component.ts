@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { Emergency } from '../dashboard/emergencies/Emergency';
+import { Emergency } from '../dashboard/emergencies/emergency/Emergency';
 
 @Component({
   selector: 'app-location',
