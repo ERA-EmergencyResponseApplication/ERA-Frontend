@@ -1,4 +1,4 @@
-import { ResponseArea } from "./ResponseArea";
+import { ResponseArea } from './ResponseArea';
 
 export class Responder {
     cellNumber: string;

@@ -21,13 +21,13 @@ export class LocationComponent implements OnInit {
   missingType: string;
 
   filteredAreas: any[];
-  areas: string[] = ['Cincinnati','West Chester','Dayton','Fairfield','Cliffton'];
+  areas: string[] = ['Cincinnati', 'West Chester', 'Dayton', 'Fairfield', 'Cliffton'];
   area: string;
   emergencies: any[];
   emergencyDet: Emergency;
 
   constructor() {
-    if(navigator){
+    if (navigator) {
       navigator.geolocation.getCurrentPosition(pos => {
         this.lng = +pos.coords.longitude;
         this.lat = +pos.coords.latitude;
@@ -45,9 +45,9 @@ export class LocationComponent implements OnInit {
 
   filterAreas(event) {
     this.filteredAreas = [];
-    for(let i = 0; i < this.areas.length; i++) {
-      let area = this.areas[i];
-      if(area.toLowerCase().indexOf(event.query.toLowerCase()) == 0) {
+    for (let i = 0; i < this.areas.length; i++) {
+      const area = this.areas[i];
+      if (area.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
           this.filteredAreas.push(area);
       }
     }
@@ -59,27 +59,27 @@ export class LocationComponent implements OnInit {
       this.success = true;
       this.addDet = true;
       this.EmCreate = false;
-      this.AlertMsg = "Emergency Alert sent successfully!";
-    }   
+      this.AlertMsg = 'Emergency Alert sent successfully!';
+    }
   }
 
   fieldsValid() {
     let nv = 1;
-    this.missingArea = "";
-    this.missingType = "";
+    this.missingArea = '';
+    this.missingType = '';
     if (this.area == null) {
       nv = 0;
-      this.missingArea = "Response Area required";
+      this.missingArea = 'Response Area required';
     }
     if (this.selectedEmergency == null) {
       nv = 0;
-      this.missingType = "Emergency Type required";
+      this.missingType = 'Emergency Type required';
     }
     return nv;
   }
 
   UpdAlert() {
-    this.AlertMsg = "Emergency Alert updated successfully!";
+    this.AlertMsg = 'Emergency Alert updated successfully!';
   }
 
   ngOnInit() {

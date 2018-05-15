@@ -50,7 +50,7 @@ import { PasswordModule } from 'primeng/password';
     SelectButtonModule,
     PanelModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-	  AgmCoreModule.forRoot({
+    AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCSIFuXPQXel1splGkx5ElXoU1bL60Jn-I'
     }),
     NgbModule.forRoot(),

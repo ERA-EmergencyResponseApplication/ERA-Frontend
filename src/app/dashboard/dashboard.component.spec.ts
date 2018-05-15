@@ -35,7 +35,7 @@ describe('DashboardComponent', () => {
     .queryAll(By.directive(RouterLinkDirectiveStub));
 
     routerLinks = linkDes.map(de => de.injector.get(RouterLinkDirectiveStub));
-    
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
