@@ -21,7 +21,12 @@ import { DropdownModule } from 'primeng/dropdown';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { SelectButtonModule } from 'primeng/selectbutton';
-
+import { CommonModule } from '@angular/common';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { TabViewModule } from 'primeng/tabview';
+import { CodeHighlighterModule } from 'primeng/codehighlighter';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
   declarations: [
@@ -48,7 +53,13 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 	  AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCSIFuXPQXel1splGkx5ElXoU1bL60Jn-I'
     }),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    CommonModule,
+    DialogModule,
+    ButtonModule,
+    TabViewModule,
+    CodeHighlighterModule,
+    PasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]

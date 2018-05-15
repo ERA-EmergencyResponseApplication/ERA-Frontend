@@ -4,7 +4,7 @@
         <div class="nav navbar-collapse">
             <ul class="nav navbar-nav" style="float: none;">           
                 <li style="float:right;">
-                  <a routerLink = "/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                  <a (click)="showDialog()" routerLink = "/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span class="badge">0</span>
                   </a>
@@ -18,4 +18,14 @@
         </div>
     </div>
 </nav>
-
+<p-dialog header="Login" [(visible)]="display" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200" [minY]="70">
+    <span class="ui-float-label" style="padding-top: 10px;">
+        <input id="float-input" type="text" size="30" pInputText> 
+        <label for="float-input">Email</label>
+    </span>
+    <input type="password" pPassword size="30" />
+    <p-footer>
+        <button type="button" pButton icon="fa-check" (click)="display=false" label="Login"></button>
+        <button type="button" pButton icon="fa-close" (click)="display=false" label="Cancel"></button>
+    </p-footer>
+</p-dialog>
