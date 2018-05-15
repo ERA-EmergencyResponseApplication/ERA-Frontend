@@ -15,7 +15,7 @@ phases:
 
   pre_build:
     commands:
-       - npm cbtest
+       - npm run cbtest
       # - command
   build:
     commands:
