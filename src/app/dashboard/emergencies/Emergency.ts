@@ -12,6 +12,4 @@ export class Emergency {
         this.location = location;
         this.startDate = startDate;
     }
-
-    
 }

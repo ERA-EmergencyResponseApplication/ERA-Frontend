@@ -15,11 +15,11 @@ phases:
 
   pre_build:
     commands:
-      # - command
+       - npm lint
   build:
     commands:
        - ng build --prod --aot
-       - npm run cbtest
+      # - npm run cbtest
       # - command
 
   post_build:
