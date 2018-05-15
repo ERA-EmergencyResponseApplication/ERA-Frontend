@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { RouterLinkDirectiveStub } from '../../testing/RouterLinkDirectiveStub';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { ResponseAreaService } from './ResponseArea.service';
+import { EmergenciesService } from './emergencies/emergencies.service';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -19,7 +21,9 @@ describe('DashboardComponent', () => {
         RouterLinkDirectiveStub
       ],
       providers: [
-        { provide: Router, useValue: routerSpy }
+        { provide: Router, useValue: routerSpy },
+        ResponseAreaService,
+        EmergenciesService
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })

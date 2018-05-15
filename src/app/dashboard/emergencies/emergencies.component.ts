@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ResponseArea } from '../ResponseArea';
-import { Emergency } from './Emergency';
 import { EmergenciesService } from './emergencies.service';
-
+import { Emergency } from './emergency/Emergency';
 @Component({
   selector: 'app-emergencies',
   templateUrl: './emergencies.component.html',

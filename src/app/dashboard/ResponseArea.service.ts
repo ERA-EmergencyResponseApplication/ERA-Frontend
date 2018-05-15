@@ -1,6 +1,6 @@
 import { ResponseArea } from './ResponseArea';
 import { Responder } from './Responder';
-import { Emergency } from "./emergencies/Emergency";
+import { Emergency } from "./emergencies/emergency/Emergency";
 
 export class ResponseAreaService {
     responseAreas: ResponseArea[] = [];
@@ -9,7 +9,6 @@ export class ResponseAreaService {
     }
 
     public getResponseAreas(): ResponseArea[] {
-        debugger;
         this.addMockData();
         this.addEmergencies();
         return this.responseAreas.slice();
