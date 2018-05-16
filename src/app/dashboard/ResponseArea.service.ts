@@ -5,8 +5,7 @@ import { Emergency } from "./emergencies/emergency/Emergency";
 export class ResponseAreaService {
     responseAreas: ResponseArea[] = [];
 
-    constructor() {
-    }
+  constructor() {}
 
     public getResponseAreas(): ResponseArea[] {
         this.addMockData();
@@ -23,7 +22,8 @@ export class ResponseAreaService {
         });
     }
 
-    private addMockData() {
+  private addMockData() {
+    this.responseAreas = [];
         this.responseAreas.push( new ResponseArea( "Liberty center", "72.5","74.5", 
         "Liberty center mall in ohio", new Responder("123-123-1234","first 1","last 1",[])));
         this.responseAreas.push( new ResponseArea( "ABCD center", "71.5","72.5", 

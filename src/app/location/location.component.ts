@@ -25,6 +25,7 @@ export class LocationComponent implements OnInit {
   filteredAreas: any[];
   areas: ResponseArea[];
   area: string;
+  selectedArea: ResponseArea[];
   emergencies: any[];
   emergencyDet: Emergency;
 
@@ -62,7 +63,7 @@ export class LocationComponent implements OnInit {
     let nv = 1;
     this.missingArea = '';
     this.missingType = '';
-    if (this.area == null) {
+    if (this.selectedArea == null) {
       nv = 0;
       this.missingArea = 'Response Area required';
     }
