@@ -48,7 +48,7 @@ export class LocationComponent implements OnInit {
       { name: 'Public Safety', flag: 'PublicSafety.png'}
     ];
   }
-  
+
   SendLoc() {
     if (this.fieldsValid()) {
       this.emergencyDet = new Emergency(this.lat, this.lng, this.selectedEmergency, this.area, new Date());

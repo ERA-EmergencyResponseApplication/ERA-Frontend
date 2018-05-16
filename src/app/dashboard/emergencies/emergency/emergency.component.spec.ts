@@ -17,11 +17,11 @@ describe('EmergencyComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EmergencyComponent);
     component = fixture.componentInstance;
-    component.emergency = new Emergency("72", "70", "Fire","Liberty",new Date());
+    component.emergency = new Emergency('72', '70', 'Fire', 'Liberty', new Date());
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    //expect(component).toBeTruthy();
+    // expect(component).toBeTruthy();
   });
 });
