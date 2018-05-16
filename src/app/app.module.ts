@@ -29,6 +29,7 @@ import { CodeHighlighterModule } from 'primeng/codehighlighter';
 import { PasswordModule } from 'primeng/password';
 import { ResponseAreaComponent } from './response-area/response-area.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     HomeComponent,
     ResponseGroupEditorComponent,
     LocationComponent,
-    ResponseAreaComponent
+    ResponseAreaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
