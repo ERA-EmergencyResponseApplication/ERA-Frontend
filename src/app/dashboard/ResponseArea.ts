@@ -27,7 +27,7 @@ export class ResponseArea {
         this.subscribers.push(responder);
     }
 
-    public addEmergency( emergency : Emergency ) {
+    public addEmergency( emergency: Emergency ) {
         this.emergencies.push(emergency);
     }
 }
