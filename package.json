@@ -7,7 +7,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test --watch=true --code-coverage=true",
-    "cbtest": "ng test --prod --watch=false",
+    "cbtest": "ng test --prod --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "httpsever": "http-server -p 8080"
