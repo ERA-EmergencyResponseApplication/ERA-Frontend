@@ -30,6 +30,8 @@ import { PasswordModule } from 'primeng/password';
 import { ResponseAreaComponent } from './response-area/response-area.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { LoginComponent } from './login/login.component';
+import { ResponderComponent } from './responder/responder.component';
+import { AlertService } from './services/alert-service';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { LoginComponent } from './login/login.component';
     ResponseGroupEditorComponent,
     LocationComponent,
     ResponseAreaComponent,
-    LoginComponent
+    LoginComponent,
+    ResponderComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,7 @@ import { LoginComponent } from './login/login.component';
     PasswordModule,
     InputTextareaModule
   ],
-  providers: [],
+  providers: [AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
