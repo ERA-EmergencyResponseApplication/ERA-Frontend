@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from '../services/alert-service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  providers: [AlertService]
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
 
   AlertMsg: string;
   success: boolean;
 
-  constructor(private alertService: AlertService) { }
+  constructor() { }
 
   ngOnInit() {
   }

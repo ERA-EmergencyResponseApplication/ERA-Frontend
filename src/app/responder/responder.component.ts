@@ -1,17 +1,17 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { AlertService } from '../services/alert-service';
+import { Responder } from '../dashboard/Responder';
 
 @Component({
   selector: 'app-responder',
   templateUrl: './responder.component.html',
-  styleUrls: ['./responder.component.css'],
-  providers: [AlertService]
+  styleUrls: ['./responder.component.css']
 })
 export class ResponderComponent implements OnInit {
   @Output() rCreated = new EventEmitter<{ success: boolean, alertMsg: string }>();
   missingFirstName: string;
   missingLastName: string;
   missingUserName: string;
+  missingRespArea: string;
   missingEmail: string;
   missingCEmail: string;
   missingPhone: string;
@@ -21,23 +21,22 @@ export class ResponderComponent implements OnInit {
   email: string;
   cemail: string;
   phone: string;
-  ResAreaSuccess: boolean;
+  respArea: string;
   success: boolean;
   AlertMsg: string;
+  responder: Responder;
 
-  constructor(private alertService: AlertService) {
-    this.ResAreaSuccess = false;
+  constructor() {
     this.success = false;
   }
 
   AddResponder() {
     if (this.fieldsValid()) {
+      this.responder = new Responder(this.fname, this.lname, this.uname, this.respArea, this.email, this.phone);
       this.success = true;
-      this.ResAreaSuccess = true;
       this.AlertMsg = 'Responder added successfully!';
       this.rCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
     }
-    this.alertService.msg(this.AlertMsg);
   }
 
   fieldsValid() {
@@ -45,6 +44,7 @@ export class ResponderComponent implements OnInit {
     this.missingFirstName = '';
     this.missingLastName = '';
     this.missingUserName = '';
+    this.missingRespArea = '';
     this.missingEmail = '';
     this.missingCEmail = '';
     this.missingPhone = '';
@@ -60,6 +60,10 @@ export class ResponderComponent implements OnInit {
     if (this.uname == null) {
       nv = 0;
       this.missingUserName = 'User name required';
+    }
+    if (this.respArea == null) {
+      nv = 0;
+      this.missingRespArea = 'Response area required';
     }
     if (this.email == null) {
       nv = 0;
