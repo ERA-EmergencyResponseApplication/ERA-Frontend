@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-response-area',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./response-area.component.css']
 })
 export class ResponseAreaComponent implements OnInit {
-
+  @Output() raCreated = new EventEmitter<{ success: boolean, alertMsg: string }>();
   missingArea: string;
   missingZip: string;
   area: string;
@@ -25,6 +25,7 @@ export class ResponseAreaComponent implements OnInit {
       this.success = true;
       this.ResAreaSuccess = true;
       this.AlertMsg = 'Response Area added successfully!';
+      this.raCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
     }
   }
 
