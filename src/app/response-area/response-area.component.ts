@@ -11,21 +11,23 @@ export class ResponseAreaComponent implements OnInit {
   missingZip: string;
   area: string;
   zip: string;
+  desc: string;
   AlertMsg: string;
-  ResAreaSuccess: boolean;
   success: boolean;
+  collapse: boolean;
 
   constructor() {
-    this.ResAreaSuccess = false;
     this.success = false;
+    this.collapse = true;
   }
 
   AddResArea() {
     if (this.fieldsValid()) {
       this.success = true;
-      this.ResAreaSuccess = true;
+      this.collapse = true;
       this.AlertMsg = 'Response Area added successfully!';
       this.raCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
+      this.reset();
     }
   }
 
@@ -42,6 +44,12 @@ export class ResponseAreaComponent implements OnInit {
       this.missingZip = 'Zip code required';
     }
     return nv;
+  }
+
+  reset() {
+    this.area = '';
+    this.zip = '';
+    this.desc = '';
   }
 
   ngOnInit() {
