@@ -23,19 +23,23 @@ export class ResponderComponent implements OnInit {
   phone: string;
   respArea: string;
   success: boolean;
+  collapse: boolean;
   AlertMsg: string;
   responder: Responder;
 
   constructor() {
     this.success = false;
+    this.collapse = true;
   }
 
   AddResponder() {
     if (this.fieldsValid()) {
       this.responder = new Responder(this.fname, this.lname, this.uname, this.respArea, this.email, this.phone);
       this.success = true;
+      this.collapse = true;
       this.AlertMsg = 'Responder added successfully!';
       this.rCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
+      this.reset();
     }
   }
 
@@ -78,6 +82,16 @@ export class ResponderComponent implements OnInit {
       this.missingPhone = 'Phone required';
     }
     return nv;
+  }
+
+  reset() {
+    this.fname = '';
+    this.lname = '';
+    this.uname = '';
+    this.email = '';
+    this.cemail = '';
+    this.phone = '';
+    this.respArea = '';
   }
 
   ngOnInit() {
