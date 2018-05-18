@@ -31,6 +31,7 @@ import { ResponseAreaComponent } from './response-area/response-area.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { LoginComponent } from './login/login.component';
 import { ResponderComponent } from './responder/responder.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { ResponderComponent } from './responder/responder.component';
     TabViewModule,
     CodeHighlighterModule,
     PasswordModule,
-    InputTextareaModule
+    InputTextareaModule,
+    MultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

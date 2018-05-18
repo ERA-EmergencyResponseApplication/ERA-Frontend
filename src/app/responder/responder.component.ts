@@ -1,5 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Responder } from '../dashboard/Responder';
+import { SelectItem } from 'primeng/api';
+import { ResponseArea } from '../dashboard/ResponseArea';
+import { ResponseAreaService } from '../dashboard/ResponseArea.service';
 
 @Component({
   selector: 'app-responder',
@@ -26,10 +29,19 @@ export class ResponderComponent implements OnInit {
   collapse: boolean;
   AlertMsg: string;
   responder: Responder;
+  rAreas: ResponseArea[];
+  areas: any[];
+  selectedAreas: ResponseArea[];
 
-  constructor() {
+  constructor(private _responseArea: ResponseAreaService) {
     this.success = false;
     this.collapse = true;
+    this.rAreas = _responseArea.getResponseAreas();
+    this.areas = [];
+
+    for (var i = 0; i < this.rAreas.length; i++) {
+      this.areas.push({ 'label': this.rAreas[i].name, 'value': this.rAreas[i].id });
+    }
   }
 
   AddResponder() {
@@ -65,7 +77,7 @@ export class ResponderComponent implements OnInit {
       nv = 0;
       this.missingUserName = 'User name required';
     }
-    if (this.respArea == null) {
+    if (this.selectedAreas == null) {
       nv = 0;
       this.missingRespArea = 'Response area required';
     }
@@ -91,7 +103,7 @@ export class ResponderComponent implements OnInit {
     this.email = '';
     this.cemail = '';
     this.phone = '';
-    this.respArea = '';
+    this.selectedAreas = [];
   }
 
   ngOnInit() {
