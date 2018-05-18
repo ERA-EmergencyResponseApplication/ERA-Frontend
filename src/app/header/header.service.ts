@@ -1,5 +1,7 @@
 import { Http, RequestOptions } from "@angular/http";
 import { Inject, Injectable } from "@angular/core";
+import { HttpHeaders } from "@angular/common/http";
+import { Responder } from "../dashboard/Responder";
 
 @Injectable()
 export class HeaderService {
@@ -9,18 +11,14 @@ export class HeaderService {
 
     loginWithCredentials(email: string, password: string) {
         let model = { "email": email, "password": password };
-        let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-        let options: RequestOptions = new RequestOptions({ headers: headers });
-        let promise = new Promise((resolve, reject) => {
-            let apiUrl = 'https://eraapi.brandoncodes.com/api/Responders/login';
-            this.http.post(apiUrl, options)
-                .toPromise()
-                .then(res => {
-                    console.log(res);
-                    resolve();
-                });
-        });
+        this.http.post('https://eraapi.brandoncodes.com/api/Responders/login', model).subscribe(
+            (val) => {
+                console.log('val', val);
 
-        return promise;
+            },
+            response => {
+                console.log('response', response);
+            }
+        )
     }
 }

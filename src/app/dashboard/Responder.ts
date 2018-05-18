@@ -8,6 +8,7 @@ export class Responder {
   email: string;
   responseArea: string;
   responseAreas: ResponseArea[] = [];
+  password: string;
 
 
   constructor(firstName: string, lastName: string, userName: string, respArea: string, email: string, phone: string) {

@@ -8,7 +8,7 @@ export class ResponseAreaServiceSpy {
 
   responseAreas: ResponseArea[] = [this.responseArea];
 
-  getResponseAreas = jasmine.createSpy('getResponseAreas').and.callFake(
-    () => asyncData(Object.assign({}, this.responseAreas))
-  );
+  // getResponseAreas = jasmine.createSpy('getResponseAreas').and.callFake(
+  //   () => asyncData(Object.assign({}, this.responseAreas))
+  // );
 }
