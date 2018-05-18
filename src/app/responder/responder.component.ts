@@ -46,7 +46,7 @@ export class ResponderComponent implements OnInit {
     this.rAreas = _responseArea.getResponseAreas();
     this.areas = [];
 
-    for (var i = 0; i < this.rAreas.length; i++) {
+    for (let i = 0; i < this.rAreas.length; i++) {
       this.areas.push({ 'label': this.rAreas[i].name, 'value': this.rAreas[i].id });
     }
   }
@@ -72,31 +72,31 @@ export class ResponderComponent implements OnInit {
     this.missingCEmail = '';
     this.missingPhone = '';
 
-    if (this.fname == '') {
+    if (this.fname === '') {
       nv = 0;
       this.missingFirstName = 'First name required';
     }
-    if (this.lname == '') {
+    if (this.lname === '') {
       nv = 0;
       this.missingLastName = 'Last name required';
     }
-    if (this.uname == '') {
+    if (this.uname === '') {
       nv = 0;
       this.missingUserName = 'User name required';
     }
-    if (this.selectedAreas.length == 0) {
+    if (this.selectedAreas.length === 0) {
       nv = 0;
       this.missingRespArea = 'Response area required';
     }
-    if (this.email == '') {
+    if (this.email === '') {
       nv = 0;
       this.missingEmail = 'Email required';
     }
-    if (this.cemail == '') {
+    if (this.cemail === '') {
       nv = 0;
       this.missingCEmail = 'Confirm email required';
     }
-    if (this.phone == '') {
+    if (this.phone === '') {
       nv = 0;
       this.missingPhone = 'Phone required';
     }
