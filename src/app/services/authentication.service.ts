@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
+import { environment } from '../../environments/environment';
+
 
 @Injectable()
 export class AuthenticationService {
   constructor(private http: HttpClient) { }
-  private loginUrl = 'https://eraapi.brandoncodes.com/api/Responders/login';
+  private loginUrl = `${environment.url}/Responders/login`;
 
   login(email: string, password: string) {
     this.http.post(this.loginUrl, { email: email, password: password })

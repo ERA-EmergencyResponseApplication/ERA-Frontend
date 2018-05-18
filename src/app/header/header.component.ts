@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) { }
 
-  private loginUrl = `${environment.url}/Responders/login`;
   email: string;
   password: string;
 
