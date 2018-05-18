@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { HomeComponent } from './home.component';
+import { ResponseAreaComponent } from './response-area.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('ResponseAreaComponent', () => {
+  let component: ResponseAreaComponent;
+  let fixture: ComponentFixture<ResponseAreaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ],
+      declarations: [ ResponseAreaComponent ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(ResponseAreaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

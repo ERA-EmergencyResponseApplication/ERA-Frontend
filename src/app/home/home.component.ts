@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  AlertMsg: string;
+  success: boolean;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onRACreated(alertData: { success: boolean, alertMsg: string }) {
+    this.success = alertData.success;
+    this.AlertMsg = alertData.alertMsg;
+  }
+  onRCreated(alertData: { success: boolean, alertMsg: string }) {
+    this.success = alertData.success;
+    this.AlertMsg = alertData.alertMsg;
   }
 
 }

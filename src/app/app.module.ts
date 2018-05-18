@@ -28,6 +28,10 @@ import { TabViewModule } from 'primeng/tabview';
 import { CodeHighlighterModule } from 'primeng/codehighlighter';
 import { PasswordModule } from 'primeng/password';
 import { HeaderService } from './header/header.service';
+import { ResponseAreaComponent } from './response-area/response-area.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { LoginComponent } from './login/login.component';
+import { ResponderComponent } from './responder/responder.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,10 @@ import { HeaderService } from './header/header.service';
     HeaderComponent,
     HomeComponent,
     ResponseGroupEditorComponent,
-    LocationComponent
+    LocationComponent,
+    ResponseAreaComponent,
+    LoginComponent,
+    ResponderComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,7 @@ import { HeaderService } from './header/header.service';
     SelectButtonModule,
     PanelModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-	  AgmCoreModule.forRoot({
+    AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCSIFuXPQXel1splGkx5ElXoU1bL60Jn-I'
     }),
     NgbModule.forRoot(),
@@ -60,7 +67,8 @@ import { HeaderService } from './header/header.service';
     ButtonModule,
     TabViewModule,
     CodeHighlighterModule,
-    PasswordModule
+    PasswordModule,
+    InputTextareaModule
   ],
   providers: [
     HeaderService

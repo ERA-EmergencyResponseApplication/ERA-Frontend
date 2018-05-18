@@ -6,12 +6,10 @@
     </div>
     <div style="margin-top: 20px;">
       <label>Response Area</label>
-      <p-autoComplete [(ngModel)]="area" [suggestions]="filteredAreas" (completeMethod)="filterAreas($event)" [size]="30"
-                      [minLength]="1" placeholder="">
-      </p-autoComplete>
+      <p-dropdown [options]="areas" [(ngModel)]="selectedArea" placeholder="Select an Area" optionLabel="name" [showClear]="true"></p-dropdown>
       <p class="errorMsg">{{missingArea}}</p>
     </div>
-    <div style="margin-top: 30px;">
+    <div style="margin-top: 50px;">
       <label>Emergency</label>
       <div style="margin-top: 15px; margin-left: 30px;">
         <p-selectButton [options]="emergencies" [(ngModel)]="selectedEmergency">

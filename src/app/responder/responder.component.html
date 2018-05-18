@@ -1,0 +1,40 @@
+<p-panel id="ResponderPanel" header="Responder" [toggleable]="true" [(collapsed)]=collapse [style]="{'margin-bottom':'20px'}">
+  <div style="margin-top: 30px;">
+    <div>
+      <label>First Name</label>
+      <input type="text" class="form-control" [(ngModel)]="fname" />
+      <p class="errorMsg">{{missingFirstName}}</p>
+    </div>
+    <div>
+      <label>Last Name</label>
+      <input type="text" class="form-control" [(ngModel)]="lname" />
+      <p class="errorMsg">{{missingLastName}}</p>
+    </div>
+    <div>
+      <label>Username</label>
+      <input type="text" class="form-control" [(ngModel)]="uname" />
+      <p class="errorMsg">{{missingUserName}}</p>
+    </div>
+    <div>
+      <label>Response Area</label>
+      <input type="text" class="form-control" [(ngModel)]="respArea" />
+      <p class="errorMsg">{{missingRespArea}}</p>
+    </div>
+    <div>
+      <label>Email</label>
+      <input type="text" class="form-control" [(ngModel)]="email" />
+      <p class="errorMsg">{{missingEmail}}</p>
+    </div>
+    <div>
+      <label>Confirm Email</label>
+      <input type="text" class="form-control" [(ngModel)]="cemail" />
+      <p class="errorMsg">{{missingCEmail}}</p>
+    </div>
+    <div>
+      <label>Phone</label>
+      <input type="text" class="form-control" [(ngModel)]="phone" />
+      <p class="errorMsg">{{missingPhone}}</p>
+    </div>
+  </div>
+  <button pButton type="button" icon="fa-plus" label="Add" class="ui-button-info" style="margin-bottom: 15px;" (click)=AddResponder()></button>
+</p-panel>

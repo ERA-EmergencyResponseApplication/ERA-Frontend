@@ -1,0 +1,10 @@
+.errorMsg {
+  font-size: 12px;
+  color: red;
+  font-style: italic;
+}
+
+#ResponderPanel {
+  display: inline-block;
+  width: 570px;
+}
