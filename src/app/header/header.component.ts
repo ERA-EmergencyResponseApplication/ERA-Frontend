@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HeaderService } from './header.service';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,26 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   display: boolean = false;
+  isLogin: boolean = true;
+  email: string = '';
+  password: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private headerService: HeaderService) { }
 
   ngOnInit() {
   }
 
   showDialog() {
     this.display = true;
+    this.isLogin = true;
+  }
+
+  signup() {
+    this.isLogin = false;
+  }
+
+  login() {
+    this.headerService.loginWithCredentials(this.email, this.password);
+    this.display = false;
   }
 }

@@ -18,14 +18,32 @@
         </div>
     </div>
 </nav>
-<p-dialog header="Login" [(visible)]="display" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200" [minY]="70">
-    <span class="ui-float-label" style="padding-top: 10px;">
-        <input id="float-input" type="text" size="30" pInputText> 
-        <label for="float-input">Email</label>
-    </span>
-    <input type="password" pPassword size="30" />
+<p-dialog 
+    header="Login" 
+    [(visible)]="display" 
+    [modal]="true" 
+    [responsive]="true" 
+    [width]="350" 
+    [minWidth]="200" 
+    [minY]="70">
+    <div *ngIf="isLogin === true" class="form-group">
+        <input type="email" class="form-control" placeholder="Enter email" [(ngModel)]="email">
+        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password">
+        <a href="#" (click)="signup()">New user? Signup </a>|
+        <a href="#"> Forgot Password?</a>
+    </div>
+    <div *ngIf="isLogin === false">
+        <input type="text" class="form-control" placeholder="First Name">
+        <input type="text" class="form-control" placeholder="Last Name">
+        <input type="email" class="form-control" placeholder="Enter email">
+        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Confirm Password">
+        <input type="text" class="form-control" placeholder="Phone">
+        <input type="text" class="form-control" placeholder="Address">
+    </div>
     <p-footer>
-        <button type="button" pButton icon="fa-check" (click)="display=false" label="Login"></button>
-        <button type="button" pButton icon="fa-close" (click)="display=false" label="Cancel"></button>
+        <button *ngIf="isLogin" type="submit" class="btn btn-primary" (click)="login()">Login</button>
+        <button *ngIf="!isLogin" type="submit" class="btn btn-primary" (click)="display=false;">Register</button>
+        <button type="btn" class="btn btn-secondary" (click)="display=false;">Cancel</button>
     </p-footer>
 </p-dialog>

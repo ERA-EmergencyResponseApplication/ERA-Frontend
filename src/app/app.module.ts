@@ -27,6 +27,7 @@ import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
 import { CodeHighlighterModule } from 'primeng/codehighlighter';
 import { PasswordModule } from 'primeng/password';
+import { HeaderService } from './header/header.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,9 @@ import { PasswordModule } from 'primeng/password';
     CodeHighlighterModule,
     PasswordModule
   ],
-  providers: [],
+  providers: [
+    HeaderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
