@@ -31,7 +31,7 @@ describe('EmergenciesComponent', () => {
     esSpy = fixture.debugElement.injector.get(EmergenciesService) as any;
     component = fixture.componentInstance;
     const responseArea = new ResponseArea('Liberty center', '72.5', '74.5', 'Liberty center mall in ohio',
-    new Responder('First', 'Last', 'username', 'Cincinnati', 'abc@xyz.com', '111-111-1112' ));
+    new Responder('First', 'Last', 'username', 'Cincinnati', 'abc@xyz.com', '111-111-1112' ), 1);
     component.respArea = responseArea;
     fixture.detectChanges();
   });
