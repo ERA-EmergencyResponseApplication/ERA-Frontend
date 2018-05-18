@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { AuthenticationService } from '../services/authentication.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,7 +16,11 @@ const httpOptions = {
 export class HeaderComponent implements OnInit {
   display = false;
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private authenticationService: AuthenticationService
+  ) { }
   private loginUrl = 'https://eraapi.brandoncodes.com/api/Responders/login';
   email: string;
   password: string;
@@ -29,11 +34,14 @@ export class HeaderComponent implements OnInit {
 
   login() {
     console.log('login');
-    this.http.post(this.loginUrl, { email: this.email, password: this.password })
-      .subscribe((response: any) => {
-        if (response.id !== null) {
-          this.display = false;
-        }
-      });
+
+    this.authenticationService.login(this.email, this.password)
+      .subscribe(
+        data => {
+          console.log("success");
+        },
+        error => {
+          console.log("Failed");
+        });
   }
 }
