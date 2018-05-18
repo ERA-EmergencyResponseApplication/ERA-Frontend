@@ -25,10 +25,10 @@ export class ResponseAreaService {
   private addMockData() {
     this.responseAreas = [];
         this.responseAreas.push( new ResponseArea( 'Liberty center', '72.5', '74.5',
-          'Liberty center mall in ohio', new Responder('first1', 'last1', 'user1', 'rArea1', 'email1', 'phone1')));
+          'Liberty center mall in ohio', new Responder('first1', 'last1', 'user1', 'rArea1', 'email1', 'phone1'), 1));
         this.responseAreas.push( new ResponseArea( 'ABCD center', '71.5', '72.5',
-          'ABCD in ohio', new Responder('first2', 'last2', 'user2', 'rArea2', 'email2', 'phone2')));
+          'ABCD in ohio', new Responder('first2', 'last2', 'user2', 'rArea2', 'email2', 'phone2'), 2));
         this.responseAreas.push( new ResponseArea( 'XYZ center', '70.5', '70.5',
-          'XYZ center mall in ohio', new Responder('first3', 'last3', 'user3', 'rArea3', 'email3', 'phone3')));
+          'XYZ center mall in ohio', new Responder('first3', 'last3', 'user3', 'rArea3', 'email3', 'phone3'), 3));
     }
 }

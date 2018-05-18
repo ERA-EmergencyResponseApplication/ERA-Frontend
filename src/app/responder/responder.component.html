@@ -16,8 +16,8 @@
       <p class="errorMsg">{{missingUserName}}</p>
     </div>
     <div>
-      <label>Response Area</label>
-      <input type="text" class="form-control" [(ngModel)]="respArea" />
+      <label style="display: block;">Response Area</label>
+      <p-multiSelect [options]="areas" [(ngModel)]="selectedAreas" [panelStyle]="{minWidth:'12em'}" defaultLabel="Select Response Area"></p-multiSelect>
       <p class="errorMsg">{{missingRespArea}}</p>
     </div>
     <div>
