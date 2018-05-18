@@ -74,6 +74,11 @@ export class ResponseAreaComponent implements OnInit {
     this.state = '';
     this.zip = '';
     this.desc = '';
+    this.missingArea = '';
+    this.missingAddr = '';
+    this.missingCity = '';
+    this.missingState = '';
+    this.missingZip = '';
   }
 
   ngOnInit() {
