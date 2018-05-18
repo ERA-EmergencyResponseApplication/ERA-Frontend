@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-response-area',
@@ -6,25 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./response-area.component.css']
 })
 export class ResponseAreaComponent implements OnInit {
-
+  @Output() raCreated = new EventEmitter<{ success: boolean, alertMsg: string }>();
   missingArea: string;
   missingZip: string;
   area: string;
   zip: string;
+  desc: string;
   AlertMsg: string;
-  ResAreaSuccess: boolean;
   success: boolean;
+  collapse: boolean;
 
   constructor() {
-    this.ResAreaSuccess = false;
     this.success = false;
+    this.collapse = true;
   }
 
   AddResArea() {
     if (this.fieldsValid()) {
       this.success = true;
-      this.ResAreaSuccess = true;
+      this.collapse = true;
       this.AlertMsg = 'Response Area added successfully!';
+      this.raCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
+      this.reset();
     }
   }
 
@@ -41,6 +44,12 @@ export class ResponseAreaComponent implements OnInit {
       this.missingZip = 'Zip code required';
     }
     return nv;
+  }
+
+  reset() {
+    this.area = '';
+    this.zip = '';
+    this.desc = '';
   }
 
   ngOnInit() {

@@ -1,6 +1,10 @@
 <div class="row">
   <div class="col-md-12" style="padding-bottom: 30px; text-align: center;">
-    <app-response-area></app-response-area>
+    <div *ngIf="success" class="alert alert-success" role="alert">
+      {{AlertMsg}}
+    </div>
+    <app-response-area (raCreated)="onRACreated($event)"></app-response-area>
+    <app-responder (rCreated)="onRCreated($event)"></app-responder>
     <h2>Events</h2>
   </div>
 </div>
