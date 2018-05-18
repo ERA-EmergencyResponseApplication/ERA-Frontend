@@ -50,23 +50,23 @@ export class ResponseAreaComponent implements OnInit {
     this.missingCity = '';
     this.missingState = '';
     this.missingZip = '';
-    if (this.area == '') {
+    if (this.area === '') {
       nv = 0;
       this.missingArea = 'Response Area required';
     }
-    if (this.address == '') {
+    if (this.address === '') {
       nv = 0;
       this.missingAddr = 'Address required';
     }
-    if (this.city == '') {
+    if (this.city === '') {
       nv = 0;
       this.missingCity = 'City required';
     }
-    if (this.state == '') {
+    if (this.state === '') {
       nv = 0;
       this.missingState = 'State required';
     }
-    if (this.zip == '') {
+    if (this.zip === '') {
       nv = 0;
       this.missingZip = 'Zip code required';
     }
