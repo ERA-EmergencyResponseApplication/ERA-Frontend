@@ -77,7 +77,7 @@ export class ResponderComponent implements OnInit {
       nv = 0;
       this.missingUserName = 'User name required';
     }
-    if (this.selectedAreas == null) {
+    if (this.selectedAreas == null || this.selectedAreas.length == 0) {
       nv = 0;
       this.missingRespArea = 'Response area required';
     }
