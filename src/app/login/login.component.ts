@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +11,27 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
 
-  name: string;
+  email: string;
   password: string;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private authenticationService: AuthenticationService
+  ) { }
 
   ngOnInit() {
+  }
+
+  login() {
+    this.authenticationService.login(this.email, this.password)
+      .subscribe(
+        data => {
+          console.log('success');
+          this.router.navigate(['/']);
+        },
+        error => console.log('Failed')
+      );
   }
 
 }
