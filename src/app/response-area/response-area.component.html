@@ -1,21 +1,35 @@
 <p-panel id="ResAreaPanel" header="Response Area" [toggleable]="true" [(collapsed)]=collapse [style]="{'margin-bottom':'20px'}">
-  <div class="col-sm-12 col-md-12 col-lg-12" style="margin-top: 30px;">
-    <div class="col-sm-6 col-md-6 col-lg-6">
-      <label>City</label>
-      <input type="text" class="form-control" [(ngModel)]="area" />
+  <div style="margin-top: 30px;">
+    <div>
+      <label class="col-sm-2 col-form-label resAreaLabels">Area</label>
+      <input type="text" class="form-control resAreaInputs" [(ngModel)]="area" />
       <p class="errorMsg">{{missingArea}}</p>
     </div>
-    <div class="col-sm-6 col-md-6 col-lg-6">
-      <label>Zip</label>
-      <input type="text" class="form-control" [(ngModel)]="zip" />
+    <div>
+      <label class="col-sm-2 col-form-label resAreaLabels">Address</label>
+      <input type="text" class="form-control resAreaInputs" [(ngModel)]="address" />
+      <p class="errorMsg">{{missingAddr}}</p>
+    </div>
+    <div>
+      <label class="col-sm-2 col-form-label resAreaLabels">City</label>
+      <input type="text" class="form-control resAreaInputs" [(ngModel)]="city" />
+      <p class="errorMsg">{{missingCity}}</p>
+    </div>
+    <div>
+      <label class="col-sm-2 col-form-label resAreaLabels">State</label>
+      <input type="text" class="form-control resAreaInputs" [(ngModel)]="state" />
+      <p class="errorMsg">{{missingState}}</p>
+    </div>
+    <div>
+      <label class="col-sm-2 col-form-label resAreaLabels">Zip</label>
+      <input type="text" class="form-control resAreaInputs" [(ngModel)]="zip" />
       <p class="errorMsg">{{missingZip}}</p>
     </div>
-  </div>
-  <div class="col-sm-12 col-md-12 col-lg-12" style="margin-top: 15px; margin-bottom: 30px;">
-    <div class="col-sm-6 col-md-6 col-lg-6" style="margin-left: 25%;">
-      <label style="display: block">Description</label>
-      <textarea rows="5" cols="50" pInputTextarea [(ngModel)]="desc"></textarea>
+    <div>
+      <label class="col-sm-2 col-form-label resAreaLabels">Description</label>
+      <textarea rows="5" cols="30" class="form-control resAreaInputs" [(ngModel)]="desc"></textarea>
     </div>
   </div>
-  <button pButton type="button" icon="fa-plus" label="Add" class="ui-button-info" style="margin-bottom: 15px;" (click)=AddResArea()></button>
+  <button pButton type="button" icon="fa-plus" label="Add" class="ui-button-primary resAreaAddBtn" (click)=AddResArea()></button>
+  <button pButton type="button" label="Clear" class="ui-button-secondary resAreaAddBtn" (click)=reset()></button>
 </p-panel>

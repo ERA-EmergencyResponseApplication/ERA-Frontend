@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DataTableModule } from 'primeng/datatable';
@@ -27,11 +28,12 @@ import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
 import { CodeHighlighterModule } from 'primeng/codehighlighter';
 import { PasswordModule } from 'primeng/password';
-import { HeaderService } from './header/header.service';
 import { ResponseAreaComponent } from './response-area/response-area.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { LoginComponent } from './login/login.component';
 import { ResponderComponent } from './responder/responder.component';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { ResponderComponent } from './responder/responder.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     DataTableModule,
     AppRoutingModule,
     DashboardModule,
@@ -68,10 +71,11 @@ import { ResponderComponent } from './responder/responder.component';
     TabViewModule,
     CodeHighlighterModule,
     PasswordModule,
-    InputTextareaModule
+    InputTextareaModule,
+    MultiSelectModule
   ],
   providers: [
-    HeaderService
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

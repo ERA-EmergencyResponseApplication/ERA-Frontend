@@ -8,8 +8,14 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class ResponseAreaComponent implements OnInit {
   @Output() raCreated = new EventEmitter<{ success: boolean, alertMsg: string }>();
   missingArea: string;
+  missingAddr: string;
+  missingCity: string;
+  missingState: string;
   missingZip: string;
   area: string;
+  address: string;
+  city: string;
+  state: string;
   zip: string;
   desc: string;
   AlertMsg: string;
@@ -17,6 +23,12 @@ export class ResponseAreaComponent implements OnInit {
   collapse: boolean;
 
   constructor() {
+    this.area = '';
+    this.address = '';
+    this.city = '';
+    this.state = '';
+    this.zip = '';
+    this.desc = '';
     this.success = false;
     this.collapse = true;
   }
@@ -34,12 +46,27 @@ export class ResponseAreaComponent implements OnInit {
   fieldsValid() {
     let nv = 1;
     this.missingArea = '';
+    this.missingAddr = '';
+    this.missingCity = '';
+    this.missingState = '';
     this.missingZip = '';
-    if (this.area == null) {
+    if (this.area === '') {
       nv = 0;
       this.missingArea = 'Response Area required';
     }
-    if (this.zip == null) {
+    if (this.address === '') {
+      nv = 0;
+      this.missingAddr = 'Address required';
+    }
+    if (this.city === '') {
+      nv = 0;
+      this.missingCity = 'City required';
+    }
+    if (this.state === '') {
+      nv = 0;
+      this.missingState = 'State required';
+    }
+    if (this.zip === '') {
       nv = 0;
       this.missingZip = 'Zip code required';
     }
@@ -48,8 +75,16 @@ export class ResponseAreaComponent implements OnInit {
 
   reset() {
     this.area = '';
+    this.address = '';
+    this.city = '';
+    this.state = '';
     this.zip = '';
     this.desc = '';
+    this.missingArea = '';
+    this.missingAddr = '';
+    this.missingCity = '';
+    this.missingState = '';
+    this.missingZip = '';
   }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HeaderService } from './header.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   email: string = '';
   password: string = '';
 
-  constructor(private router: Router, private headerService: HeaderService) { }
+  constructor(private router: Router, private authService: AuthenticationService) { }
 
   ngOnInit() {
   }
@@ -28,7 +28,11 @@ export class HeaderComponent implements OnInit {
   }
 
   login() {
-    this.headerService.loginWithCredentials(this.email, this.password);
-    this.display = false;
+    this.authService.login(this.email, this.password)
+      .subscribe((response: any) => {
+        if(response) {
+          this.display = false;
+        }
+      });
   }
 }

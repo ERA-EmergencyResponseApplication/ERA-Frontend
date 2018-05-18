@@ -1,5 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Responder } from '../dashboard/Responder';
+import { SelectItem } from 'primeng/api';
+import { ResponseArea } from '../dashboard/ResponseArea';
+import { ResponseAreaService } from '../dashboard/ResponseArea.service';
 
 @Component({
   selector: 'app-responder',
@@ -26,10 +29,26 @@ export class ResponderComponent implements OnInit {
   collapse: boolean;
   AlertMsg: string;
   responder: Responder;
+  rAreas: ResponseArea[];
+  areas: any[];
+  selectedAreas: ResponseArea[];
 
-  constructor() {
+  constructor(private _responseArea: ResponseAreaService) {
+    this.fname = '';
+    this.lname = '';
+    this.uname = '';
+    this.email = '';
+    this.cemail = '';
+    this.phone = '';
+    this.selectedAreas = [];
     this.success = false;
     this.collapse = true;
+    this.rAreas = _responseArea.getResponseAreas();
+    this.areas = [];
+
+    for (let i = 0; i < this.rAreas.length; i++) {
+      this.areas.push({ 'label': this.rAreas[i].name, 'value': this.rAreas[i].id });
+    }
   }
 
   AddResponder() {
@@ -53,31 +72,31 @@ export class ResponderComponent implements OnInit {
     this.missingCEmail = '';
     this.missingPhone = '';
 
-    if (this.fname == null) {
+    if (this.fname === '') {
       nv = 0;
       this.missingFirstName = 'First name required';
     }
-    if (this.lname == null) {
+    if (this.lname === '') {
       nv = 0;
       this.missingLastName = 'Last name required';
     }
-    if (this.uname == null) {
+    if (this.uname === '') {
       nv = 0;
       this.missingUserName = 'User name required';
     }
-    if (this.respArea == null) {
+    if (this.selectedAreas.length === 0) {
       nv = 0;
       this.missingRespArea = 'Response area required';
     }
-    if (this.email == null) {
+    if (this.email === '') {
       nv = 0;
       this.missingEmail = 'Email required';
     }
-    if (this.cemail == null) {
+    if (this.cemail === '') {
       nv = 0;
       this.missingCEmail = 'Confirm email required';
     }
-    if (this.phone == null) {
+    if (this.phone === '') {
       nv = 0;
       this.missingPhone = 'Phone required';
     }
@@ -91,7 +110,14 @@ export class ResponderComponent implements OnInit {
     this.email = '';
     this.cemail = '';
     this.phone = '';
-    this.respArea = '';
+    this.selectedAreas = [];
+    this.missingFirstName = '';
+    this.missingLastName = '';
+    this.missingUserName = '';
+    this.missingRespArea = '';
+    this.missingEmail = '';
+    this.missingCEmail = '';
+    this.missingPhone = '';
   }
 
   ngOnInit() {
