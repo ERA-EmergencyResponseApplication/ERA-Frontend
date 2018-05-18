@@ -23,6 +23,12 @@ export class ResponseAreaComponent implements OnInit {
   collapse: boolean;
 
   constructor() {
+    this.area = '';
+    this.address = '';
+    this.city = '';
+    this.state = '';
+    this.zip = '';
+    this.desc = '';
     this.success = false;
     this.collapse = true;
   }
@@ -44,23 +50,23 @@ export class ResponseAreaComponent implements OnInit {
     this.missingCity = '';
     this.missingState = '';
     this.missingZip = '';
-    if (this.area == null) {
+    if (this.area == '') {
       nv = 0;
       this.missingArea = 'Response Area required';
     }
-    if (this.address == null) {
+    if (this.address == '') {
       nv = 0;
       this.missingAddr = 'Address required';
     }
-    if (this.city == null) {
+    if (this.city == '') {
       nv = 0;
       this.missingCity = 'City required';
     }
-    if (this.state == null) {
+    if (this.state == '') {
       nv = 0;
       this.missingState = 'State required';
     }
-    if (this.zip == null) {
+    if (this.zip == '') {
       nv = 0;
       this.missingZip = 'Zip code required';
     }

@@ -2,9 +2,32 @@
   font-size: 12px;
   color: red;
   font-style: italic;
+  margin-left: 125px;
 }
 
 #ResponderPanel {
   display: inline-block;
   width: 570px;
+}
+
+.resLabels {
+  margin-top: 5px;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 125px;
+}
+
+.resInputs {
+  width: 250px;
+}
+
+.resAddBtn {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+
+.mulitselect{
+  display: -webkit-box;
+  max-width: 250px;
 }
