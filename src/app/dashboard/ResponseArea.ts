@@ -16,7 +16,8 @@ export class ResponseArea {
   admins: Responder[] = [];
   subscribers: Responder[] = [];
 
-  constructor(name: string, lat: any, lon: any, description: string, address: string, city: string, state: string, zip: string, owner: Responder, id: number) {
+  constructor(name: string, lat: any, lon: any, description: string, address: string, city: string, state: string,
+    zip: string, owner: Responder, id: number) {
     this.name = name;
     this.lat = lat;
     this.lon = lon;
