@@ -34,6 +34,13 @@ export class ResponderComponent implements OnInit {
   selectedAreas: ResponseArea[];
 
   constructor(private _responseArea: ResponseAreaService) {
+    this.fname = '';
+    this.lname = '';
+    this.uname = '';
+    this.email = '';
+    this.cemail = '';
+    this.phone = '';
+    this.selectedAreas = [];
     this.success = false;
     this.collapse = true;
     this.rAreas = _responseArea.getResponseAreas();
@@ -65,31 +72,31 @@ export class ResponderComponent implements OnInit {
     this.missingCEmail = '';
     this.missingPhone = '';
 
-    if (this.fname == null) {
+    if (this.fname == '') {
       nv = 0;
       this.missingFirstName = 'First name required';
     }
-    if (this.lname == null) {
+    if (this.lname == '') {
       nv = 0;
       this.missingLastName = 'Last name required';
     }
-    if (this.uname == null) {
+    if (this.uname == '') {
       nv = 0;
       this.missingUserName = 'User name required';
     }
-    if (this.selectedAreas == null || this.selectedAreas.length == 0) {
+    if (this.selectedAreas.length == 0) {
       nv = 0;
       this.missingRespArea = 'Response area required';
     }
-    if (this.email == null) {
+    if (this.email == '') {
       nv = 0;
       this.missingEmail = 'Email required';
     }
-    if (this.cemail == null) {
+    if (this.cemail == '') {
       nv = 0;
       this.missingCEmail = 'Confirm email required';
     }
-    if (this.phone == null) {
+    if (this.phone == '') {
       nv = 0;
       this.missingPhone = 'Phone required';
     }
@@ -104,6 +111,13 @@ export class ResponderComponent implements OnInit {
     this.cemail = '';
     this.phone = '';
     this.selectedAreas = [];
+    this.missingFirstName = '';
+    this.missingLastName = '';
+    this.missingUserName = '';
+    this.missingRespArea = '';
+    this.missingEmail = '';
+    this.missingCEmail = '';
+    this.missingPhone = '';
   }
 
   ngOnInit() {
