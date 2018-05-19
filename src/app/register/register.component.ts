@@ -4,7 +4,7 @@ import { SelectItem } from 'primeng/api';
 import { ResponseArea } from '../dashboard/ResponseArea';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ResponseAreaService } from '../services/response-area.service';
-
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -27,13 +27,15 @@ export class RegisterComponent implements OnInit {
   missingResponseAreas: string;
   missingEmail: string;
   missingPhone: string;
-  user: Responder[];
+  user: any;
   rAreas: ResponseArea[];
   areas: any[];
   responseAreas: ResponseArea[];
   public form: FormGroup;
 
-  constructor(private _responseArea: ResponseAreaService) {
+  constructor(
+    private _responseArea: ResponseAreaService,
+    private _user: UserService  ) {
     this.fname = '';
     this.lname = '';
     this.uname = '';
@@ -44,21 +46,28 @@ export class RegisterComponent implements OnInit {
     this.success = false;
     this.collapse = true;
     this.rAreas = [];
-    this.user = [];
+    this.areas = [];
+    this.user = {};
 
     _responseArea.getResponseAreas()
-      .then(response => this.rAreas = response.data);
+      .then(response => {
+        this.rAreas = response.data;
+        for (let i = 0; i < this.rAreas.length; i++) {
+          this.areas.push({ 'label': this.rAreas[i].name, 'value': this.rAreas[i].id });
+        }
+      });
 
-    for (let i = 0; i < this.rAreas.length; i++) {
-      this.areas.push({ 'label': this.rAreas[i].name, 'value': this.rAreas[i].id });
-    }
+    
   }
 
   AddUser() {
     // if (this.fieldsValid()) {
       // this.responder = new Responder(this.fname, this.lname, this.uname, this.respArea, this.email, this.phone);
-      this.success = true;
-      this.collapse = true;
+    this.success = true;
+    this.collapse = true;
+    const u = new Responder(this.user.firstName, this.user.lastName, "abc123", this.user.responseAreas, this.user.email, this.user.cellNumber);
+
+    this._user.createUser(u);
       this.AlertMsg = 'Responder added successfully!';
       // this.rCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
       this.reset();

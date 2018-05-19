@@ -4,19 +4,19 @@ export class Responder {
   cellNumber: string;
   firstName: string;
   lastName: string;
-  userName: string;
+  password: string;
   email: string;
-  responseArea: string;
+  //responseAreas: any[];
   responseAreas: ResponseArea[] = [];
 
 
-  constructor(firstName: string, lastName: string, userName: string, respArea: string, email: string, phone: string) {
+  constructor(firstName: string, lastName: string, password: string, responseAreas: any, email: string, cellNumber: string) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.userName = userName;
+    this.password = password;
     this.email = email;
-    this.cellNumber = phone;
-    this.responseArea = respArea;
+    this.cellNumber = cellNumber;
+    this.responseAreas = responseAreas;
   }
 
   public addResponseArea(responseArea: ResponseArea) {
