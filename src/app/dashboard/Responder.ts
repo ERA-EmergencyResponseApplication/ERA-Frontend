@@ -6,7 +6,7 @@ export class Responder {
   lastName: string;
   password: string;
   email: string;
-  //responseAreas: any[];
+  // responseAreas: any[];
   responseAreas: ResponseArea[] = [];
 
 

@@ -56,8 +56,6 @@ export class RegisterComponent implements OnInit {
           this.areas.push({ 'label': this.rAreas[i].name, 'value': this.rAreas[i].id });
         }
       });
-
-    
   }
 
   AddUser() {
@@ -65,8 +63,8 @@ export class RegisterComponent implements OnInit {
       // this.responder = new Responder(this.fname, this.lname, this.uname, this.respArea, this.email, this.phone);
     this.success = true;
     this.collapse = true;
-    const u = new Responder(this.user.firstName, this.user.lastName, "abc123", this.user.responseAreas, this.user.email, this.user.cellNumber);
-
+    const u = new Responder(this.user.firstName, this.user.lastName, 'abc123', this.user.responseAreas,
+      this.user.email, this.user.cellNumber);
     this._user.createUser(u);
       this.AlertMsg = 'Responder added successfully!';
       // this.rCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
