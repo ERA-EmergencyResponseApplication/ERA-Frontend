@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Emergency } from '../dashboard/emergencies/emergency/Emergency';
 import { ResponseArea } from '../dashboard/ResponseArea';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ResponseAreaService } from '../services/response-area.service';
 
 @Component({
@@ -29,6 +30,10 @@ export class LocationComponent implements OnInit {
   emergencies: any[];
   emergencyDet: Emergency;
 
+  //form
+  public form: FormGroup;
+
+
   constructor(private _responseArea: ResponseAreaService) {
     if (navigator) {
       navigator.geolocation.getCurrentPosition(pos => {
@@ -51,34 +56,28 @@ export class LocationComponent implements OnInit {
   }
 
   SendLoc() {
-    if (this.fieldsValid()) {
+
       this.emergencyDet = new Emergency(this.lat, this.lng, this.selectedEmergency, this.area, new Date());
       this.success = true;
       this.addDet = true;
       this.EmCreate = false;
       this.AlertMsg = 'Emergency Alert sent successfully!';
-    }
-  }
-
-  fieldsValid() {
-    let nv = 1;
-    this.missingArea = '';
-    this.missingType = '';
-    if (this.selectedArea == null) {
-      nv = 0;
-      this.missingArea = 'Response Area required';
-    }
-    if (this.selectedEmergency == null) {
-      nv = 0;
-      this.missingType = 'Emergency Type required';
-    }
-    return nv;
   }
 
   UpdAlert() {
     this.AlertMsg = 'Emergency Alert updated successfully!';
+
   }
 
   ngOnInit() {
+
+    this.form = new FormGroup({
+      'selectedArea' : new FormControl(null, Validators.required),
+      'selectedEmergency' : new FormControl(null, Validators.required)
+    });
+
+    this.form.reset();
+    this.missingArea = 'Response Area required';
+    this.missingType = 'Emergency Type required';
   }
 }
