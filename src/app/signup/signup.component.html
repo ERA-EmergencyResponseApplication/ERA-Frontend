@@ -1,0 +1,20 @@
+<div class="header-body">
+  <div class="background-container">
+    <div class="inner-container">
+      <h1 class="inner-container-header">Log In</h1>
+      <input class="username" type="text" [(ngModel)]="firstName" placeholder="First Name" />
+      <p class="errorMsg">{{firstNameError}}</p>
+      <input class="username" type="text" [(ngModel)]="lastName" placeholder="Last Name" />
+      <p class="errorMsg">{{lastNameError}}</p>
+      <input class="username" type="email" [(ngModel)]="email" placeholder="Email Address" />
+      <p class="errorMsg">{{emailError}}</p>
+      <input class="password" type="password" [(ngModel)]="password" placeholder="Password" />
+      <p class="errorMsg">{{passwordError}}</p>
+      <input class="password" type="password" [(ngModel)]="confirmPassword" placeholder="Confirm Password" />
+      <p class="errorMsg">{{confirmPasswordError}}</p>
+      <input class="username" type="phone" [(ngModel)]="phone" placeholder="Phone" />
+      <p class="errorMsg">{{phoneError}}</p>
+      <button class="submit-button" type="button" pButton (click)="signup()">Sign Up</button>
+    </div>
+  </div>
+</div>
