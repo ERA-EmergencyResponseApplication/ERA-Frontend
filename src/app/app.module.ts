@@ -36,6 +36,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ResponseAreaService } from './services/response-area.service';
+import { SignupComponent } from './signup/signup.component';
+import { ValidationService } from './services/validation.service';
 import { EmergencyService } from './services/emergency.service';
 import { EmergencySelectComponent } from './dashboard/emergencies/emergency-select/emergency-select.component';
 import { EmergencyDetailComponent } from './dashboard/emergencies/emergency-detail/emergency-detail.component';
@@ -55,6 +57,7 @@ import { UserService } from '../app/services/user.service';
     ResponseAreaComponent,
     LoginComponent,
     ResponderComponent,
+    SignupComponent,
     DashboardComponent,
     EmergenciesComponent,
     EmergencyComponent,
@@ -95,7 +98,8 @@ import { UserService } from '../app/services/user.service';
     AuthenticationService,
     ResponseAreaService,
     EmergencyService,
-UserService
+    UserService,
+    ValidationService
   ],
   bootstrap: [AppComponent]
 })
