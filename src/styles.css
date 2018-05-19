@@ -71,3 +71,78 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin: 60px 30px;
+}
+
+.form-textbox {
+  display: block;
+  border-radius: 3px;
+  height: 44px;
+  width: calc(100% - 1px);
+  border: 1px solid #3b3d40;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  padding-left: 0;
+}
+
+.form-dropdown {
+  display: block !important;
+  margin-bottom: 16px;
+}
+
+.button-base {
+  border: 1px solid #0a74c7;
+  border-radius: 3px;
+  height: 44px;
+  width: calc(100% - 1px);
+  font-size: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  padding: 9px 6px;
+  align-items: flex-start;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.primary-button {
+  background: #0a74c7;
+  color: #fff;
+}
+
+.primary-button:hover {
+  background: #06508a;
+}
+
+.ui-widget, .ui-widget-header, .ui-widget-content {
+  margin: 0;
+  padding: 0;
+}
+
+.ui-multiselect {
+  display: block;
+  margin-bottom: 16px;
+  height: 44px;
+}
+
+.ui-multiselect-label-container {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 44px;
+}
+
+.ui-multiselect-filter-container {
+  display: block;
+  padding: 0;
+  height: 44px;
+  margin: 0;
+}
