@@ -10,7 +10,10 @@
     "cbtest": "ng test --browsers=HeadlessChrome --prod --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "httpsever": "http-server -p 8080"
+    "httpsever": "http-server -p 8080",
+    "ngsw-config": "node_modules/.bin/ngsw-config dist ngsw-config.json",
+    "ngsw-copy": "cp node_modules/@angular/service-worker/ngsw-worker.js dist/",
+    "build-prod-ngsw": "ng build --prod --aot && npm run ngsw-config && npm run ngsw-copy"
   },
   "private": true,
   "dependencies": {
