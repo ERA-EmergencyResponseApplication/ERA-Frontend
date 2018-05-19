@@ -13,12 +13,12 @@ export class EmergenciesComponent implements OnInit {
   constructor(private emergencyService: EmergencyService) { }
 
   ngOnInit() {
-    console.log(this.respArea);
-    
-    this.emergencies = this.emergencyService.getAllEmergencies()
-      .filter((emergency:Emergency) => {
-        emergency.responseAreaId === this.respArea.id;
-      });
-
+    if(this.respArea) {
+      console.log(this.respArea);
+      this.emergencies = this.emergencyService.getAllEmergencies()
+        .filter((emergency:Emergency) => {
+          emergency.responseAreaId === this.respArea.id;
+        });
+    }
   }
 }
