@@ -14,11 +14,11 @@ export class DashboardComponent implements OnInit {
 
   responseAreas: ResponseArea[] = [];
   emergencies: Emergency[];
-  constructor(private router: Router, 
+  constructor(private router: Router,
     private respAreaService: ResponseAreaService) { }
 
   ngOnInit() {
-     const userId:number = +localStorage.getItem('userId');
+     const userId: number = +localStorage.getItem('userId');
      this.responseAreas = this.respAreaService.getResponseAreasForUser(userId);
   }
 

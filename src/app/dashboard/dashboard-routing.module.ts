@@ -1,8 +1,8 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { DashboardComponent } from "./dashboard.component";
-import { EmergencyDetailComponent } from "./emergencies/emergency-detail/emergency-detail.component";
-import { EmergencySelectComponent } from "./emergencies/emergency-select/emergency-select.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard.component';
+import { EmergencyDetailComponent } from './emergencies/emergency-detail/emergency-detail.component';
+import { EmergencySelectComponent } from './emergencies/emergency-select/emergency-select.component';
 
 const routes: Routes = [
     {
@@ -11,7 +11,7 @@ const routes: Routes = [
         children: [
             {path: '', component: EmergencySelectComponent},
             {path: 'respArea/:respAreaId/emergency/:emergencyId', component: EmergencyDetailComponent}
-            //{path: ':id/edit', component: ResponseGroupEditComponent},
+            // {path: ':id/edit', component: ResponseGroupEditComponent},
         ]
     }
 ];

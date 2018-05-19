@@ -28,8 +28,8 @@ export class ResponseAreaService extends AbstractService {
     const respArr: ResponseArea[] = [];
     this.$get(endpoints.getResponseAreasOfSubscriber(userId)).bind(this).
     then((response) => {
-      if(response.data){
-        response.data.forEach((element:ResponseArea) => {
+      if (response.data) {
+        response.data.forEach((element: ResponseArea) => {
           respArr.push(element);
         });
       }
@@ -38,8 +38,8 @@ export class ResponseAreaService extends AbstractService {
   }
 
 
-  addSubscriberToResponseArea(responderId:number, responseAreaId: number) {
-    return this.$put(endpoints.addSubscriberToResponseArea(responseAreaId,responderId)).bind(this);
+  addSubscriberToResponseArea(responderId: number, responseAreaId: number) {
+    return this.$put(endpoints.addSubscriberToResponseArea(responseAreaId, responderId)).bind(this);
   }
 
 }
