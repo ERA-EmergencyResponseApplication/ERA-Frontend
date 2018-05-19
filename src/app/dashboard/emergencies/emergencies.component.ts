@@ -7,7 +7,7 @@ import { EmergencyService } from '../../services/emergency.service';
   templateUrl: './emergencies.component.html',
   styleUrls: ['./emergencies.component.css']
 })
-export class EmergenciesComponent implements OnInit,AfterViewInit {
+export class EmergenciesComponent implements OnInit {
   @Input() respArea: ResponseArea;
   emergencies: Emergency[] = [];
   constructor(private emergencyService: EmergencyService) { 
@@ -15,19 +15,8 @@ export class EmergenciesComponent implements OnInit,AfterViewInit {
   }
 
   ngOnInit() {
-    if(this.respArea) {
-      console.log(this.respArea);
+    if (this.respArea) {
       this.emergencies = this.emergencyService.getAllEmergencies(this.respArea.id);
-      console.log("Emergencies: " +this.emergencies);
     }
-  }
-
-  ngAfterViewInit() {
-    this.emergencies = this.emergencies.filter(
-      (emergency: Emergency) => {
-        console.log(emergency);
-        emergency.responseAreaId === this.respArea.id;
-      }
-    );
   }
 }

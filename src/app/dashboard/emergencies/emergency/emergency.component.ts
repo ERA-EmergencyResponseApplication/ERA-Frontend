@@ -12,5 +12,4 @@ export class EmergencyComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

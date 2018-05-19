@@ -11,8 +11,8 @@ export class Emergency {
     creatorId: number;
     responseAreaId: number;
 
-    constructor(type: string,coordinates: any, location: string, 
-        startDate: string, endDate: string, creatorId: number, respAreaId: number,id?:number) {
+    constructor(type: string, coordinates: any, location: string, 
+        startDate: string, endDate: string, creatorId: number, respAreaId: number, id?:number) {
         this.type = type;
         this.location_description = location;
         this.start_datetime = startDate;
