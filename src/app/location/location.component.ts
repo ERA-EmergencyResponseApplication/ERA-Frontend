@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Emergency } from '../dashboard/emergencies/emergency/Emergency';
 import { ResponseArea } from '../dashboard/ResponseArea';
-import { ResponseAreaService } from '../dashboard/ResponseArea.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ResponseAreaService } from '../services/response-area.service';
 
 @Component({
   selector: 'app-location',
@@ -45,7 +45,8 @@ export class LocationComponent implements OnInit {
     this.addDet = false;
     this.EmCreate = true;
 
-    this.areas = _responseArea.getResponseAreas();
+    _responseArea.getResponseAreas()
+      .then(response => this.areas = response.data);
 
     this.emergencies = [
       { name: 'Medical', flag: 'Med.png'},

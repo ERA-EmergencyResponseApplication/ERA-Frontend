@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { AuthenticationService } from '../services/authentication.service';
+import { ResponseArea } from '../dashboard/ResponseArea';
+import { ResponseAreaService } from '../services/response-area.service';
 
 @Component({
   selector: 'app-response-area',
@@ -23,7 +24,8 @@ export class ResponseAreaComponent implements OnInit {
   success: boolean;
   collapse: boolean;
 
-  constructor(private authenticationService: AuthenticationService) {
+  constructor(
+    private responseAreaService: ResponseAreaService  ) {
     this.area = '';
     this.address = '';
     this.city = '';
@@ -35,14 +37,16 @@ export class ResponseAreaComponent implements OnInit {
   }
 
   AddResArea() {
-    this.authenticationService.createResponseArea();
-    // if (this.fieldsValid()) {
-    //   this.success = true;
-    //   this.collapse = true;
-    //   this.AlertMsg = 'Response Area added successfully!';
-    //   this.raCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
-    //   this.reset();
-    // }
+    if (this.fieldsValid()) {
+      this.success = true;
+      this.collapse = true;
+      const userid = localStorage.getItem('userId');
+      const respArea = new ResponseArea(this.area, this.desc, {}, this.address, this.city, this.state, this.zip, userid);
+      this.responseAreaService.createResponseArea(respArea);
+      this.AlertMsg = 'Response Area added successfully!';
+      this.raCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
+      this.reset();
+    }
   }
 
   fieldsValid() {

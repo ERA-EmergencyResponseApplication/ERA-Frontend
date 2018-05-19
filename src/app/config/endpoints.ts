@@ -2,5 +2,6 @@ import { environment } from '../../environments/environment';
 
 export default {
   login: () => `${environment.url}/Responders/login`,
-  createResponseArea: () => `${environment.url}/ResponseAreas`
+  createResponseArea: () => `${environment.url}/ResponseAreas`,
+  getResponseAreas: () => `${environment.url}/ResponseAreas`
 };
