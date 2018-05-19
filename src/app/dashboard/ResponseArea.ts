@@ -2,43 +2,41 @@ import { Emergency } from './emergencies/emergency/Emergency';
 import { Responder } from './Responder';
 
 export class ResponseArea {
-  name: string;
-  lat: any;
-  lon: any;
-  description: string;
   id: number;
+  name: string;
+  description: string;
+  coordinates: {
+    lat: any;
+    lon: any;
+  };
   address: string;
   city: string;
   state: string;
   zip: string;
-  emergencies: Emergency[] = [];
-  ownedBy: Responder;
-  admins: Responder[] = [];
-  subscribers: Responder[] = [];
+  ownerId: string;
 
-  constructor(name: string, lat: any, lon: any, description: string, address: string, city: string, state: string,
-    zip: string, owner: Responder, id: number) {
+  constructor(name: string, description: string, coordinates: any, address: string, city: string, state: string,
+    zip: string, ownerId: string, id?: number) {
     this.name = name;
-    this.lat = lat;
-    this.lon = lon;
     this.description = description;
+    this.coordinates = this.coordinates;
     this.address = address;
     this.city = city;
     this.state = state;
     this.zip = zip;
-    this.ownedBy = owner;
+    this.ownerId = ownerId;
     this.id = id;
   }
 
-  public addAdminToEmergency(responder: Responder) {
-    this.admins.push(responder);
-  }
+  // public addAdminToEmergency(responder: Responder) {
+  //   this.admins.push(responder);
+  // }
 
-  public addSubscriberToEmergency(responder: Responder) {
-    this.subscribers.push(responder);
-  }
+  // public addSubscriberToEmergency(responder: Responder) {
+  //   this.subscribers.push(responder);
+  // }
 
-  public addEmergency( emergency: Emergency ) {
-    this.emergencies.push(emergency);
-  }
+  // public addEmergency( emergency: Emergency ) {
+  //   this.emergencies.push(emergency);
+  // }
 }
