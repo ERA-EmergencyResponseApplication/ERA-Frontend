@@ -23,7 +23,7 @@ phases:
       - npm run lint
   build:
     commands:
-       - ng build --prod --aot
+       - npm run build-prod-ngsw
       # - npm run cbtest
       # - command
 

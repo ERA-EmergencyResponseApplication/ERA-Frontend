@@ -1,6 +1,6 @@
 {
-  "name": "n5-complete-guide",
-  "short_name": "n5-complete-guide",
+  "name": "emergency-app",
+  "short_name": "emergency-app",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
@@ -46,6 +46,11 @@
       "src": "assets/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "assets/icons/background.jpg",
+      "sizes": "1600x1000",
+      "type": "image/jpg"
     }
   ]
 }
