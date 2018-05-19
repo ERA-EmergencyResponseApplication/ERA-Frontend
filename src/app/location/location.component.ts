@@ -79,8 +79,4 @@ export class LocationComponent implements OnInit {
     this.missingArea = 'Response Area required';
     this.missingType = 'Emergency Type required';
   }
-
-  test() {
-    console.log(this.form);
-  }
 }
