@@ -35,6 +35,7 @@ import { ResponderComponent } from './responder/responder.component';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuard } from './guards/auth.guard';
+import { ResponseAreaService } from './services/response-area.service';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { AuthGuard } from './guards/auth.guard';
   ],
   providers: [
     AuthGuard,
-    AuthenticationService
+    AuthenticationService,
+    ResponseAreaService
   ],
   bootstrap: [AppComponent]
 })
