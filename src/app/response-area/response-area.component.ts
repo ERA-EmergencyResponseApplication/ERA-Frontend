@@ -1,4 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { ResponseArea } from '../dashboard/ResponseArea';
+import { ResponseAreaService } from '../dashboard/ResponseArea.service';
 
 @Component({
   selector: 'app-response-area',
