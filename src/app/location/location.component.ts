@@ -72,7 +72,6 @@ export class LocationComponent implements OnInit {
       'locationDetails' : new FormControl(null, Validators.required)
     });
 
-    //this.form.reset();
     this.missingArea = 'Response Area required';
     this.missingType = 'Emergency Type required';
   }

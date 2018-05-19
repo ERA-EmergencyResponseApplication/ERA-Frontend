@@ -4,11 +4,11 @@ import { Emergency } from './emergencies/emergency/Emergency';
 
 export class ResponseAreaService {
     responseAreas: ResponseArea[] = [];
-    emergencies: any[] =[];
+    emergencies: any[] = [];
   constructor() {}
 
     public getResponseAreas(): ResponseArea[] {
-        //this.addMockData();
+        // this.addMockData();
         this.addEmergencies();
         return this.responseAreas.slice();
     }
