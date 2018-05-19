@@ -28,15 +28,18 @@
       <div>
         <button type="submit" class="btn btn-primary" style="margin-top: 50px;" [disabled]="form.invalid">Share Location</button>
       </div>
-      <div *ngIf="addDet">
-        <div style="margin-top: 30px;">
-          <div><label>Location Details</label></div>
-          <textarea rows="5" cols="25"></textarea>
+      <form [formGroup]="updateForm" (ngSubmit)="UpdAlert()">
+        <div *ngIf="addDet">
+          <div style="margin-top: 30px;">
+            <div><label>Location Details</label></div>
+            <textarea rows="5" cols="25" formControlName = "locationDetails"></textarea>
+            <p class="help-block" *ngIf="form.get('locationDetails').touched && form.get('locationDetails').invalid">{{missingLocationDetails}}</p>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary" [disabled]="updateForm.invalid" style="margin-top: 30px;">Update</button>
+          </div>
         </div>
-        <div>
-          <button class="btn btn-primary" style="margin-top: 30px;" (click)=UpdAlert()>Update</button>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
 </form>
