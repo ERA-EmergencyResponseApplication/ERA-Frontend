@@ -2,8 +2,9 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Responder } from '../dashboard/Responder';
 import { SelectItem } from 'primeng/api';
 import { ResponseArea } from '../dashboard/ResponseArea';
-import { ResponseAreaService } from '../dashboard/ResponseArea.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ResponseAreaService } from '../services/response-area.service';
+
 
 @Component({
   selector: 'app-register',
@@ -42,9 +43,11 @@ export class RegisterComponent implements OnInit {
     this.responseAreas = [];
     this.success = false;
     this.collapse = true;
-    this.rAreas = _responseArea.getResponseAreas();
-    this.areas = [];
+    this.rAreas = [];
     this.user = [];
+
+    _responseArea.getResponseAreas()
+      .then(response => this.rAreas = response.data);
 
     for (let i = 0; i < this.rAreas.length; i++) {
       this.areas.push({ 'label': this.rAreas[i].name, 'value': this.rAreas[i].id });
