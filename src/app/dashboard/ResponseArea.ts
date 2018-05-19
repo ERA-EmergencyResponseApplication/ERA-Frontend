@@ -1,4 +1,5 @@
 import { Responder } from './Responder';
+import { Emergency } from '../models/Emergency';
 
 export class ResponseArea {
   id: number;
@@ -13,6 +14,7 @@ export class ResponseArea {
   state: string;
   zip: string;
   ownerId: string;
+  emergencies: Emergency[] = [];
 
   constructor(name: string, description: string, coordinates: any, address: string, city: string, state: string,
     zip: string, ownerId: string, id?: number) {

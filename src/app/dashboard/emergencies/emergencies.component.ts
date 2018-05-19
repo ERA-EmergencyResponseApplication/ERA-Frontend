@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { ResponseArea } from '../ResponseArea';
 import { Emergency } from '../../models/Emergency';
 import { EmergencyService } from '../../services/emergency.service';
@@ -7,20 +7,27 @@ import { EmergencyService } from '../../services/emergency.service';
   templateUrl: './emergencies.component.html',
   styleUrls: ['./emergencies.component.css']
 })
-export class EmergenciesComponent implements OnInit {
+export class EmergenciesComponent implements OnInit,AfterViewInit {
   @Input() respArea: ResponseArea;
-  emergencies: Emergency[];
+  emergencies: Emergency[] = [];
   constructor(private emergencyService: EmergencyService) { 
-    this.emergencies = [];
+    
   }
 
   ngOnInit() {
     if(this.respArea) {
       console.log(this.respArea);
-      this.emergencies = this.emergencyService.getAllEmergencies()
-        .filter((emergency:Emergency) => {
-          emergency.responseAreaId === this.respArea.id;
-        });
+      this.emergencies = this.emergencyService.getAllEmergencies(this.respArea.id);
+      console.log("Emergencies: " +this.emergencies);
     }
+  }
+
+  ngAfterViewInit() {
+    this.emergencies = this.emergencies.filter(
+      (emergency: Emergency) => {
+        console.log(emergency);
+        emergency.responseAreaId === this.respArea.id;
+      }
+    );
   }
 }

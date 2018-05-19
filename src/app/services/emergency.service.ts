@@ -28,9 +28,9 @@ export class EmergencyService extends AbstractService {
         return this.$get(endpoints.getEmergencies(respAreaId)).bind(this);
       }
 
-      getAllEmergencies(): Emergency[] {
+      getAllEmergencies(respAreaId: number): Emergency[] {
         const emergencies: Emergency[] = [];
-        this.$get(endpoints.getAllEmergencies()).bind(this)
+        this.$get(endpoints.getEmergenciesArea(respAreaId)).bind(this)
         .then((response) => {
           if(response.data){
             response.data.forEach((element:Emergency) => {
