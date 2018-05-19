@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit {
     const u = new Responder(this.user.firstName, this.user.lastName, 'abc123', this.user.responseAreas,
       this.user.email, this.user.cellNumber);
     this._user.createUser(u);
-      this.AlertMsg = 'Responder added successfully!';
+      this.AlertMsg = 'User added successfully!';
       // this.rCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
       this.reset();
     // }
@@ -85,6 +85,7 @@ export class RegisterComponent implements OnInit {
     this.missingResponseAreas = '';
     this.missingEmail = '';
     this.missingPhone = '';
+    this.success = false;
   }
 
   ngOnInit() {

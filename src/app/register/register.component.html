@@ -2,6 +2,9 @@
   <div class="register-page-header">
     <div class="register-page-header-text">Register User</div>
   </div>
+  <div *ngIf="success" class="alert alert-success" role="alert">
+    {{AlertMsg}}
+  </div>
   <form [formGroup]="form" class="registration-form" (ngSubmit)="AddUser()">
     <div class="form-row">
       <div class="register-form-elements">
@@ -14,7 +17,7 @@
           <label class="col-sm-2 col-form-label form-label resLabels">Last Name</label>
           <input type="text" class="form-control form-textbox resInputs" formControlName="lastname" [(ngModel)]="user.lastName" />
           <p class="help-block errorMsg" *ngIf="form.get('lastname').touched && form.get('lastname').invalid">{{missingLastName}}</p>
-        </div>    
+        </div>
         <div class="form-dropdown">
           <div><p-multiSelect [options]="areas" formControlName="responseareas" [(ngModel)]="user.responseAreas" [panelStyle]="{minWidth:'18em'}" defaultLabel="Select Response Area"></p-multiSelect></div>
           <p class="help-block errorMsg" *ngIf="form.get('responseareas').touched && form.get('responseareas').invalid">{{missingResponseAreas}}</p>
@@ -31,8 +34,8 @@
         </div>
       </div>
       <div class="register-form-footer-buttons">
-          <button class="button-base primary-button register-submit-button" type="submit" pButton [disabled]="form.invalid">Submit</button>
-          <button class="button-base ui-button-secondary register-cancel-button" type="button" pButton (click)="reset()">Cancel</button>
+        <button class="button-base primary-button register-submit-button" type="submit" pButton [disabled]="form.invalid">Submit</button>
+        <button class="button-base ui-button-secondary register-cancel-button" type="button" pButton (click)="reset()">Cancel</button>
       </div>
     </div>
   </form>
