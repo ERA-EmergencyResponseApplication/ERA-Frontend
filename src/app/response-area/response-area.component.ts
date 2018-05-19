@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-response-area',
@@ -22,7 +23,7 @@ export class ResponseAreaComponent implements OnInit {
   success: boolean;
   collapse: boolean;
 
-  constructor() {
+  constructor(private authenticationService: AuthenticationService) {
     this.area = '';
     this.address = '';
     this.city = '';
@@ -34,13 +35,14 @@ export class ResponseAreaComponent implements OnInit {
   }
 
   AddResArea() {
-    if (this.fieldsValid()) {
-      this.success = true;
-      this.collapse = true;
-      this.AlertMsg = 'Response Area added successfully!';
-      this.raCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
-      this.reset();
-    }
+    this.authenticationService.createResponseArea();
+    // if (this.fieldsValid()) {
+    //   this.success = true;
+    //   this.collapse = true;
+    //   this.AlertMsg = 'Response Area added successfully!';
+    //   this.raCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
+    //   this.reset();
+    // }
   }
 
   fieldsValid() {

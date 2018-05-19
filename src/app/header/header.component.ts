@@ -30,10 +30,6 @@ export class HeaderComponent implements OnInit {
   }
 
   login() {
-    this.authenticationService.login(this.email, this.password)
-      .subscribe(
-        data => console.log('success'),
-        error => console.log('Failed')
-      );
+    this.authenticationService.login(this.email, this.password);
   }
 }
