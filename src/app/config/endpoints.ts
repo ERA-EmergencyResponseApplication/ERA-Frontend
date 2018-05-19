@@ -9,6 +9,6 @@ export default {
   createEmergency: () => `${environment.url}/Emergencies`,
   getResponseAreasOfSubscriber : (responderId: number) => `${environment.url}/Responders/` + responderId + `/subscriptions`,
   getEmergenciesArea: (respAreaId: number) => `${environment.url}/ResponseAreas/` + respAreaId + `/emergencies`,
-  addSubscriberToResponseArea: (responseAreaId:number, responderId: number) => `${environment.url}/ResponseAreas` 
+  addSubscriberToResponseArea: (responseAreaId: number, responderId: number) => `${environment.url}/ResponseAreas`
   + responseAreaId + `/subscribers/rel/` + responderId
 };
