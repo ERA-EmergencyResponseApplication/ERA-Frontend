@@ -14,24 +14,19 @@ import { ResponseAreaService } from '../services/response-area.service';
 export class LocationComponent implements OnInit {
   lat: any;
   lng: any;
-  selectedEmergency: string;
-  LocDet: string;
   success: boolean;
   addDet: boolean;
-  EmCreate: boolean;
   AlertMsg: string;
   missingArea: string;
   missingType: string;
-
-  filteredAreas: any[];
   areas: ResponseArea[];
   area: string;
-  selectedArea: ResponseArea[];
   emergencies: any[];
   emergencyDet: Emergency;
 
   // form
   public form: FormGroup;
+  public updateForm: FormGroup;
 
 
   constructor(private _responseArea: ResponseAreaService) {
@@ -43,7 +38,6 @@ export class LocationComponent implements OnInit {
     }
     this.success = false;
     this.addDet = false;
-    this.EmCreate = true;
 
     _responseArea.getResponseAreas()
       .then(response => this.areas = response.data);
@@ -57,16 +51,14 @@ export class LocationComponent implements OnInit {
 
   SendLoc() {
 
-      this.emergencyDet = new Emergency(this.lat, this.lng, this.selectedEmergency, this.area, new Date());
-      this.success = true;
-      this.addDet = true;
-      this.EmCreate = false;
-      this.AlertMsg = 'Emergency Alert sent successfully!';
+      // this.emergencyDet = new Emergency(this.lat, this.lng, this.selectedEmergency, this.area, new Date());
+       this.success = true;
+       this.addDet = true;
+       this.AlertMsg = 'Emergency Alert sent successfully!';
   }
 
   UpdAlert() {
     this.AlertMsg = 'Emergency Alert updated successfully!';
-
   }
 
   ngOnInit() {
@@ -76,7 +68,10 @@ export class LocationComponent implements OnInit {
       'selectedEmergency' : new FormControl(null, Validators.required)
     });
 
-    this.form.reset();
+    this.updateForm = new FormGroup({
+      'locationDetails' : new FormControl(null, Validators.required)
+    });
+
     this.missingArea = 'Response Area required';
     this.missingType = 'Emergency Type required';
   }

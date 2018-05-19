@@ -4,7 +4,7 @@ import { Emergency } from './emergencies/emergency/Emergency';
 
 export class ResponseAreaService {
     responseAreas: ResponseArea[] = [];
-
+    emergencies: any[] = [];
   constructor() {}
 
     public getResponseAreas(): ResponseArea[] {
@@ -34,4 +34,8 @@ export class ResponseAreaService {
         //   'XYZ center mall in ohio', 'Address3', 'City3', 'State3', 'Zip3',
         //   new Responder('first3', 'last3', 'user3', 'rArea3', 'email3', 'phone3'), 3));
     // }
+
+public getEmergenciesOptions() {
+}
+
 }
