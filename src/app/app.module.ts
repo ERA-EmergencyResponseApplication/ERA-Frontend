@@ -36,6 +36,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ResponseAreaService } from './services/response-area.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ResponseAreaService } from './services/response-area.service';
     LocationComponent,
     ResponseAreaComponent,
     LoginComponent,
-    ResponderComponent
+    ResponderComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

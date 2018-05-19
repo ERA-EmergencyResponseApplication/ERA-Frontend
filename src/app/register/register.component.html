@@ -1,0 +1,31 @@
+<form [formGroup]="form" (ngSubmit)="AddUser()">
+  <div style="margin-top: 30px;">
+    <div>
+      <label class="col-sm-2 col-form-label resLabels">First Name</label>
+      <input type="text" class="form-control resInputs" formControlName="firstname" [(ngModel)]="user.firstName" />
+      <p class="help-block errorMsg" *ngIf="form.get('firstname').touched && form.get('firstname').invalid">{{missingFirstName}}</p>
+    </div>
+    <div>
+      <label class="col-sm-2 col-form-label resLabels">Last Name</label>
+      <input type="text" class="form-control resInputs" formControlName="lastname" [(ngModel)]="user.lastName" />
+      <p class="help-block errorMsg" *ngIf="form.get('lastname').touched && form.get('lastname').invalid">{{missingLastName}}</p>
+    </div>    
+    <div>
+      <label class="col-sm-2 col-form-label resLabels">Response Area</label>
+      <span class="mulitselect"><p-multiSelect [options]="areas" formControlName="responseareas" [(ngModel)]="user.responseAreas" [panelStyle]="{minWidth:'12em'}" defaultLabel="Select Response Area"></p-multiSelect></span>
+      <p class="help-block errorMsg" *ngIf="form.get('responseareas').touched && form.get('responseareas').invalid">{{missingResponseAreas}}</p>
+    </div>
+    <div>
+      <label class="col-sm-2 col-form-label resLabels">Email</label>
+      <input type="text" class="form-control resInputs" formControlName="email" [(ngModel)]="user.email" />
+      <p class="help-block errorMsg" *ngIf="form.get('email').touched && form.get('email').invalid">{{missingEmail}}</p>
+    </div>
+    <div>
+      <label class="col-sm-2 col-form-label resLabels">Phone</label>
+      <input type="text" class="form-control resInputs" formControlName="cellnumber" [(ngModel)]="user.cellNumber" />
+      <p class="help-block errorMsg" *ngIf="form.get('cellnumber').touched && form.get('cellnumber').invalid">{{missingPhone}}</p>
+    </div>
+  </div>
+  <button class="submit-button" type="submit" pButton [disabled]="form.invalid">Submit</button>
+  <button class="submit-button ui-button-secondary" type="button" pButton (click)="reset()">Cancel</button>
+</form>
