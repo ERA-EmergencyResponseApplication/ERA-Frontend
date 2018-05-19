@@ -1,4 +1,3 @@
-import { Emergency } from './emergencies/emergency/Emergency';
 import { Responder } from './Responder';
 
 export class ResponseArea {

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Emergency } from './Emergency';
+import { Emergency } from '../../../models/Emergency';
 
 @Component({
   selector: 'app-emergency',

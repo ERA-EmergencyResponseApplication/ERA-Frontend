@@ -36,6 +36,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ResponseAreaService } from './services/response-area.service';
+import { EmergencyService } from './services/emergency.service';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { ResponseAreaService } from './services/response-area.service';
   providers: [
     AuthGuard,
     AuthenticationService,
-    ResponseAreaService
+    ResponseAreaService,
+    EmergencyService
   ],
   bootstrap: [AppComponent]
 })
