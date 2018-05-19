@@ -26,7 +26,6 @@ export class AuthenticationService extends AbstractService {
   signup(newUser: Responder) {
     return this.$post(endpoints.signup(), newUser).bind(this)
       .then((response) => {
-        console.log(response);
         return response;
       })
   }

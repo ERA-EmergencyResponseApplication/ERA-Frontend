@@ -8,7 +8,11 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css', '../login/login.component.css']
+  styleUrls: [
+    './signup.component.css', 
+    '../login/login.component.css', 
+    '../responder/responder.component.css'
+  ]
 })
 export class SignupComponent implements OnInit {
   firstName: string;
@@ -34,17 +38,26 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    if(!this.validationService.validateName(this.firstName)) {
+    if(!this.isFormValid) {
+      this.isFormValid = true;
+      this.firstNameError = null;
+      this.lastNameError = null;
+      this.emailError = null;
+      this.phoneError = null;
+      this.passwordError = null;
+      this.confirmPasswordError = null;
+    }
+    if(this.firstName && this.firstName.trim().length === 0 && !this.validationService.validateName(this.firstName)) {
       this.isFormValid = false;
       this.firstNameError = 'Please enter a valid first name';
     }
 
-    if(!this.validationService.validateName(this.lastName)) {
+    if(this.lastName && this.lastName.trim().length === 0 && !this.validationService.validateName(this.lastName)) {
       this.isFormValid = false;
-      this.firstNameError = 'Please enter a valid last name';
+      this.lastNameError = 'Please enter a valid last name';
     }
 
-    if(!this.email && this.email.trim().length === 0) {
+    if(!this.email || this.email.trim().length === 0) {
       this.isFormValid = false;
       this.emailError = 'Email is required';
     } else if(!this.validationService.validateEmail(this.email)) {
@@ -52,7 +65,7 @@ export class SignupComponent implements OnInit {
       this.emailError = 'Please enter a valid email';
     }
 
-    if(!this.phone && this.phone.trim().length === 0) {
+    if(!this.phone || this.phone.trim().length === 0) {
       this.isFormValid = false;
       this.phoneError = 'Phone is required';
     } else if(!this.validationService.validatePhone(this.phone)) {
@@ -65,7 +78,7 @@ export class SignupComponent implements OnInit {
       this.passwordError = 'Password is required';
     }
 
-    if(!this.confirmPassword && this.confirmPassword.trim().length === 0) {
+    if(!this.confirmPassword || this.confirmPassword.trim().length === 0) {
       this.isFormValid = false;
       this.confirmPasswordError = 'Please re-enter the password';
     } else if(!this.validationService.validateConfirmPassword(this.password, this.confirmPassword)) {
@@ -75,9 +88,12 @@ export class SignupComponent implements OnInit {
 
     if(this.isFormValid) {
       let newUser = new Responder(this.firstName, this.lastName, null, this.email, this.phone, this.password);
-      // this.authService.signup(newUser).subscribe();
       this.authService.signup(newUser)
-      .then((response) => this.router.navigate(['/']));
+      .then((response) => {
+        if(response) {
+          this.router.navigate(['/']);
+        }
+      });
     }
   }
 
