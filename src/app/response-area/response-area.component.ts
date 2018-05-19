@@ -24,7 +24,7 @@ export class ResponseAreaComponent implements OnInit {
   success: boolean;
   collapse: boolean;
 
-  constructor() {
+  constructor(private authenticationService: AuthenticationService) {
     this.area = '';
     this.address = '';
     this.city = '';

@@ -14,6 +14,6 @@ export class EmergenciesComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.respArea);
-    this.emergencies = this.emergenciesService.getEmergencies(this.respArea);
+    // this.emergencies = this.emergenciesService.getEmergencies(this.respArea);
   }
 }
