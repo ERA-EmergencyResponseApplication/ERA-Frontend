@@ -12,8 +12,8 @@ export class AuthenticationService extends AbstractService {
     super({});
    }
 
-  login(email: string, password: string) {
-    return this.$post(endpoints.login(), { email, password }).bind(this)
+  login(username: string, password: string) {
+    return this.$post(endpoints.login(), { username, password }).bind(this)
       .then((response) => {
         const { id: token, userId } = response.data;
         localStorage.setItem('token', token);
@@ -27,7 +27,7 @@ export class AuthenticationService extends AbstractService {
     return this.$post(endpoints.signup(), newUser).bind(this)
       .then((response) => {
         return response;
-      })
+      });
   }
 
 }

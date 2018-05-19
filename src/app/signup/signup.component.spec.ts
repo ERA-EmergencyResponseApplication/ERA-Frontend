@@ -24,7 +24,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 // }
 
 // class MockValidationService {
-  
+
 // }
 
 describe('SignupComponent', () => {

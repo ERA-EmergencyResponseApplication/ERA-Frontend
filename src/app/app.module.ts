@@ -44,6 +44,8 @@ import { EmergencyDetailComponent } from './dashboard/emergencies/emergency-deta
 import { EmergencyComponent } from './dashboard/emergencies/emergency/emergency.component';
 import { EmergenciesComponent } from './dashboard/emergencies/emergencies.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegisterComponent } from './register/register.component';
+import { UserService } from '../app/services/user.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     EmergenciesComponent,
     EmergencyComponent,
     EmergencyDetailComponent,
-    EmergencySelectComponent
+    EmergencySelectComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -94,8 +97,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AuthGuard,
     AuthenticationService,
     ResponseAreaService,
-    ValidationService,
-    EmergencyService
+    EmergencyService,
+    UserService,
+    ValidationService
   ],
   bootstrap: [AppComponent]
 })

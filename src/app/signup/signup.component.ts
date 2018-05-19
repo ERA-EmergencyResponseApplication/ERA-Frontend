@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: [
-    './signup.component.css', 
-    '../login/login.component.css', 
+    './signup.component.css',
+    '../login/login.component.css',
     '../responder/responder.component.css'
   ]
 })
@@ -27,10 +27,10 @@ export class SignupComponent implements OnInit {
   passwordError: string;
   confirmPasswordError: string;
   phoneError: string;
-  isFormValid: boolean = true;
+  isFormValid = true;
 
   constructor(
-    private validationService: ValidationService, 
+    private validationService: ValidationService,
     private authService: AuthenticationService,
     private router: Router) { }
 
@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    if(!this.isFormValid) {
+    if (!this.isFormValid) {
       this.isFormValid = true;
       this.firstNameError = null;
       this.lastNameError = null;
@@ -47,50 +47,50 @@ export class SignupComponent implements OnInit {
       this.passwordError = null;
       this.confirmPasswordError = null;
     }
-    if(this.firstName && this.firstName.trim().length === 0 && !this.validationService.validateName(this.firstName)) {
+    if (this.firstName && this.firstName.trim().length === 0 && !this.validationService.validateName(this.firstName)) {
       this.isFormValid = false;
       this.firstNameError = 'Please enter a valid first name';
     }
 
-    if(this.lastName && this.lastName.trim().length === 0 && !this.validationService.validateName(this.lastName)) {
+    if (this.lastName && this.lastName.trim().length === 0 && !this.validationService.validateName(this.lastName)) {
       this.isFormValid = false;
       this.lastNameError = 'Please enter a valid last name';
     }
 
-    if(!this.email || this.email.trim().length === 0) {
+    if (!this.email || this.email.trim().length === 0) {
       this.isFormValid = false;
       this.emailError = 'Email is required';
-    } else if(!this.validationService.validateEmail(this.email)) {
+    } else if (!this.validationService.validateEmail(this.email)) {
       this.isFormValid = false;
       this.emailError = 'Please enter a valid email';
     }
 
-    if(!this.phone || this.phone.trim().length === 0) {
+    if (!this.phone || this.phone.trim().length === 0) {
       this.isFormValid = false;
       this.phoneError = 'Phone is required';
-    } else if(!this.validationService.validatePhone(this.phone)) {
+    } else if (!this.validationService.validatePhone(this.phone)) {
       this.isFormValid = false;
       this.phoneError = 'Please enter a valid phone';
     }
 
-    if(!this.password && this.password.trim().length === 0) {
+    if (!this.password && this.password.trim().length === 0) {
       this.isFormValid = false;
       this.passwordError = 'Password is required';
     }
 
-    if(!this.confirmPassword || this.confirmPassword.trim().length === 0) {
+    if (!this.confirmPassword || this.confirmPassword.trim().length === 0) {
       this.isFormValid = false;
       this.confirmPasswordError = 'Please re-enter the password';
-    } else if(!this.validationService.validateConfirmPassword(this.password, this.confirmPassword)) {
+    } else if (!this.validationService.validateConfirmPassword(this.password, this.confirmPassword)) {
       this.isFormValid = false;
       this.confirmPasswordError = 'Passwords must match in both the fields';
     }
 
-    if(this.isFormValid) {
-      let newUser = new Responder(this.firstName, this.lastName, null, this.email, this.phone, this.password);
+    if (this.isFormValid) {
+      const newUser = new Responder(this.firstName, this.lastName, null, this.email, this.phone, this.password);
       this.authService.signup(newUser)
       .then((response) => {
-        if(response) {
+        if (response) {
           this.router.navigate(['/']);
         }
       });

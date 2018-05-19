@@ -5,17 +5,17 @@ export class Responder {
   firstName: string;
   lastName: string;
   email: string;
-  responseArea: string;
+  // responseAreas: any[];
   responseAreas: ResponseArea[] = [];
   password: string;
 
 
-  constructor(firstName: string, lastName: string, respArea: string, email: string, phone: string, password: string) {
+  constructor(firstName: string, lastName: string, password: string, responseAreas: any, email: string, cellNumber: string) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
-    this.cellNumber = phone;
-    this.responseArea = respArea;
+    this.cellNumber = cellNumber;
+    this.responseAreas = responseAreas;
     this.password = password;
   }
 
