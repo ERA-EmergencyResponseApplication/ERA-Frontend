@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  url: 'http://eraserverebs-test.us-east-2.elasticbeanstalk.com/api'
+  url : 'http://eraserverebs-test.us-east-2.elasticbeanstalk.com/api'
 };

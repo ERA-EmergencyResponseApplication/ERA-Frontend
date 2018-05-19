@@ -5,8 +5,9 @@ import { Router } from '@angular/router';
 import { RouterLinkDirectiveStub } from '../../testing/RouterLinkDirectiveStub';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { ResponseAreaService } from './ResponseArea.service';
+
 import { EmergenciesService } from './emergencies/emergencies.service';
+import { ResponseAreaService } from '../services/response-area.service';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;

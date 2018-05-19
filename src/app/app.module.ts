@@ -36,6 +36,12 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ResponseAreaService } from './services/response-area.service';
+import { EmergencyService } from './services/emergency.service';
+import { EmergencySelectComponent } from './dashboard/emergencies/emergency-select/emergency-select.component';
+import { EmergencyDetailComponent } from './dashboard/emergencies/emergency-detail/emergency-detail.component';
+import { EmergencyComponent } from './dashboard/emergencies/emergency/emergency.component';
+import { EmergenciesComponent } from './dashboard/emergencies/emergencies.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +52,12 @@ import { ResponseAreaService } from './services/response-area.service';
     LocationComponent,
     ResponseAreaComponent,
     LoginComponent,
-    ResponderComponent
+    ResponderComponent,
+    DashboardComponent,
+    EmergenciesComponent,
+    EmergencyComponent,
+    EmergencyDetailComponent,
+    EmergencySelectComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +68,6 @@ import { ResponseAreaService } from './services/response-area.service';
     HttpClientModule,
     DataTableModule,
     AppRoutingModule,
-    DashboardModule,
     DropdownModule,
     AutoCompleteModule,
     RadioButtonModule,
@@ -80,7 +90,8 @@ import { ResponseAreaService } from './services/response-area.service';
   providers: [
     AuthGuard,
     AuthenticationService,
-    ResponseAreaService
+    ResponseAreaService,
+    EmergencyService
   ],
   bootstrap: [AppComponent]
 })
