@@ -36,6 +36,12 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ResponseAreaService } from './services/response-area.service';
+import { EmergencyService } from './services/emergency.service';
+import { EmergencySelectComponent } from './dashboard/emergencies/emergency-select/emergency-select.component';
+import { EmergencyDetailComponent } from './dashboard/emergencies/emergency-detail/emergency-detail.component';
+import { EmergencyComponent } from './dashboard/emergencies/emergency/emergency.component';
+import { EmergenciesComponent } from './dashboard/emergencies/emergencies.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './register/register.component';
 import { UserService } from '../app/services/user.service';
 
@@ -49,6 +55,11 @@ import { UserService } from '../app/services/user.service';
     ResponseAreaComponent,
     LoginComponent,
     ResponderComponent,
+    DashboardComponent,
+    EmergenciesComponent,
+    EmergencyComponent,
+    EmergencyDetailComponent,
+    EmergencySelectComponent,
     RegisterComponent
   ],
   imports: [
@@ -60,7 +71,6 @@ import { UserService } from '../app/services/user.service';
     HttpClientModule,
     DataTableModule,
     AppRoutingModule,
-    DashboardModule,
     DropdownModule,
     AutoCompleteModule,
     RadioButtonModule,
@@ -84,7 +94,8 @@ import { UserService } from '../app/services/user.service';
     AuthGuard,
     AuthenticationService,
     ResponseAreaService,
-    UserService
+    EmergencyService,
+UserService
   ],
   bootstrap: [AppComponent]
 })

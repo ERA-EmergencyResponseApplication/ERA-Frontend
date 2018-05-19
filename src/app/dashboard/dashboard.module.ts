@@ -5,23 +5,28 @@ import { HttpModule } from '@angular/http';
 import { DashboardComponent } from './dashboard.component';
 import { DataTableModule } from 'primeng/datatable';
 import { EmergenciesComponent } from './emergencies/emergencies.component';
-import { EmergencyComponent } from './emergencies/emergency/emergency.component';
-import { ResponseAreaService } from './ResponseArea.service';
 import { EmergenciesService } from './emergencies/emergencies.service';
+import { EmergencyComponent } from './emergencies/emergency/emergency.component';
+import { EmergencyDetailComponent } from './emergencies/emergency-detail/emergency-detail.component';
+import { EmergencySelectComponent } from './emergencies/emergency-select/emergency-select.component';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     EmergenciesComponent,
-    EmergencyComponent
+    EmergencyComponent,
+    EmergencyDetailComponent,
+    EmergencySelectComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    DataTableModule
+    DataTableModule,
+    DashboardRoutingModule
   ],
   exports: [],
-  providers: [ResponseAreaService, EmergenciesService]
+  providers: [EmergenciesService]
 })
 export class DashboardModule { }

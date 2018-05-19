@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LocationComponent } from './location.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ResponseAreaServiceSpy } from '../../testing/ResponseAreaServiceSpy';
-import { ResponseAreaService } from '../dashboard/ResponseArea.service';
+import { ResponseAreaService } from '../services/response-area.service';
 
 describe('LocationComponent', () => {
   let component: LocationComponent;

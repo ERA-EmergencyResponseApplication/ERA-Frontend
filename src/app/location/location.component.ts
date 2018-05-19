@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { Emergency } from '../dashboard/emergencies/emergency/Emergency';
 import { ResponseArea } from '../dashboard/ResponseArea';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ResponseAreaService } from '../services/response-area.service';
+import { Emergency } from '../models/Emergency';
+import { EmergencyService } from '../services/emergency.service';
 
 @Component({
   selector: 'app-location',
@@ -29,7 +30,7 @@ export class LocationComponent implements OnInit {
   public updateForm: FormGroup;
 
 
-  constructor(private _responseArea: ResponseAreaService) {
+  constructor(private _responseArea: ResponseAreaService, private emergencyService: EmergencyService) {
     if (navigator) {
       navigator.geolocation.getCurrentPosition(pos => {
         this.lng = +pos.coords.longitude;
@@ -44,17 +45,15 @@ export class LocationComponent implements OnInit {
 
     this.emergencies = [
       { name: 'Medical', flag: 'Med.png'},
-      { name: 'Fire Hazard', flag: 'Fire.png'},
-      { name: 'Public Safety', flag: 'PublicSafety.png'}
+      { name: 'Fire', flag: 'Fire.png'},
+      { name: 'PublicSafety', flag: 'PublicSafety.png'}
     ];
   }
 
   SendLoc() {
-
-      // this.emergencyDet = new Emergency(this.lat, this.lng, this.selectedEmergency, this.area, new Date());
-       this.success = true;
-       this.addDet = true;
-       this.AlertMsg = 'Emergency Alert sent successfully!';
+    this.success = true;
+    this.addDet = true;
+    this.createEmergency();
   }
 
   UpdAlert() {
@@ -75,4 +74,23 @@ export class LocationComponent implements OnInit {
     this.missingArea = 'Response Area required';
     this.missingType = 'Emergency Type required';
   }
+
+  private createEmergency() {
+    const respAreaId: number = this.form.get('selectedArea').value.id;
+    const type = this.form.get('selectedEmergency').value.name;
+    const userid = +localStorage.getItem('userId');
+    const startDate = new Date().toISOString();
+    const endDate = new Date();
+    endDate.setDate(endDate.getDate() + 1);
+    this.emergencyDet = new Emergency(type, {}, '', startDate, endDate.toISOString(), userid, respAreaId);
+    this.emergencyService.createEmergency(this.emergencyDet);
+    this.AlertMsg = 'Emergency Alert sent successfully!';
+  }
+
+  private updateEmergency() {
+    const location_description = this.updateForm.get('locationDetails').value;
+    // need service to update the emergency with more detaiils.
+  }
+
+
 }

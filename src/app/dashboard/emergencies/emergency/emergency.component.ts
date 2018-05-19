@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Emergency } from './Emergency';
+import { Emergency } from '../../../models/Emergency';
+import { ResponseArea } from '../../ResponseArea';
 
 @Component({
   selector: 'app-emergency',
@@ -8,9 +9,14 @@ import { Emergency } from './Emergency';
 })
 export class EmergencyComponent implements OnInit {
   @Input() emergency: Emergency;
+  @Input() responseArea: ResponseArea;
+  startDate: string;
+  startTime: string;
   constructor() { }
 
   ngOnInit() {
+    const dateTime: Date = new Date(this.emergency.start_datetime);
+    this.startDate = new Date(this.emergency.start_datetime).toLocaleDateString();
+    this.startTime = new Date(this.emergency.start_datetime).toLocaleTimeString();
   }
-
 }

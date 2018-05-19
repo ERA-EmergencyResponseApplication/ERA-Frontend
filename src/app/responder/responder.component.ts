@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Responder } from '../dashboard/Responder';
 import { SelectItem } from 'primeng/api';
 import { ResponseArea } from '../dashboard/ResponseArea';
-import { ResponseAreaService } from '../dashboard/ResponseArea.service';
+import { ResponseAreaService } from '../services/response-area.service';
 
 @Component({
   selector: 'app-responder',
