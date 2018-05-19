@@ -1,3 +1,42 @@
+.header-body {
+  background: url("../../assets/icons/background.jpg") no-repeat;
+  background-position: center center;
+  -webkit-background-size: auto;
+  -moz-background-size: auto;
+  -o-background-size: auto;
+  background-size: auto;
+  height: calc(100vh - 48px);
+  margin-top: -25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.background-container {
+  margin: 0 auto;
+  -webkit-box-shadow: 0 6px 22px 0 rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 6px 22px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 6px 22px 0 rgba(0,0,0,0.2);
+  border: 1px solid #3b3d40;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.inner-container {
+  padding: 10px 16px 16px;
+  margin: 10px auto;
+  max-width: 480px;
+  width: calc(100% - 10px);
+  min-width: 360px;
+}
+
+.inner-container-header {
+  text-align: center;
+  color: #3b3d40;
+}
+
 .username {
   background-image: url("../../assets/icons/user.svg");
   background-repeat: no-repeat;
@@ -6,10 +45,10 @@
   display: block;
   border-radius: 3px;
   height: 44px;
-  width: calc(100% - 47px);
+  width: calc(100% - 1px);
   border: 1px solid #3b3d40;
   margin-bottom: 16px;
-  padding: 0 0 0 45px;
+  padding: 0 0 0  45px;
   font-size: 16px;
   color: #3b3d40;
 }
@@ -22,10 +61,44 @@
   display: block;
   border-radius: 3px;
   height: 44px;
-  width: calc(100% - 47px);
+  width: calc(100% - 1px);
   border: 1px solid #3b3d40;
   margin-bottom: 16px;
-  padding: 0 0 0 45px;
+  padding: 0 0 0  45px;
   font-size: 16px;
   color: #3b3d40;
+}
+
+.submit-button {
+  background: #0a74c7;
+  color: #fff;
+  border: 1px solid #0a74c7;
+  border-radius: 3px;
+  height: 44px;
+  width: calc(100% - 1px);
+  font-size: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  padding: 9px 6px;
+  align-items: flex-start;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.submit-button:hover {
+  background: #06508a;
+}
+
+
+@media screen and (min-width: 768px) {
+  .background-container {
+    margin: 90px auto 0;
+    max-width: 600px;
+    min-width: 400px;
+  }
+
+  .inner-container {
+    padding: 10px 30px 16px;
+    margin: 10px auto 0;
+  }
 }

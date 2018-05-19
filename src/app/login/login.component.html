@@ -6,21 +6,13 @@
     <button type="button" pButton icon="fa-check" (click)="login()" label="Login"></button>
     <button type="button" pButton icon="fa-close" (click)="display=false" label="Cancel"></button>
 </div>-->
-
-
-<div class="container-fluid" style="text-align: center; margin-top: 60px;">
-  <div>
-    <div style="margin-top: 20px;">
-      <label>User Name</label>
-      <input class="username" type="text" [(ngModel)]="email" />
-    </div>
+<div class="header-body">
+<div class="background-container"> 
+  <div class="inner-container">
+    <h1 class="inner-container-header">Log In</h1>
+    <input class="username" type="text" [(ngModel)]="email" placeholder="Email Address" />
+    <input class="password" type="password" [(ngModel)]="password"  placeholder="Password" />
+    <button class="submit-button" type="button" pButton (click)="login()">Sign In</button>  
   </div>
-  <div>
-    <div style="margin-top: 20px;">
-      <label>Password</label>
-      <input type="password" class="password" [(ngModel)]="password" />
-    </div>
-  </div>
-  <button type="button" pButton icon="fa-check" (click)="login()" label="Login"></button>
-  <button type="button" pButton icon="fa-close" (click)="display=false" label="Cancel"></button>
+</div>
 </div>
