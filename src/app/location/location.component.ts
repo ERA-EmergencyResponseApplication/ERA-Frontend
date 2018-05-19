@@ -79,10 +79,10 @@ export class LocationComponent implements OnInit {
     const respAreaId:number = this.form.get('selectedArea').value.id;
     const type = this.form.get('selectedEmergency').value.name;
     const userid = +localStorage.getItem('userId');
-    const startDate = new Date().toISOString(); 
-    let endDate =new Date(); 
+    const startDate = new Date().toISOString();
+    let endDate = new Date(); 
     endDate.setDate(endDate.getDate() + 1);
-    this.emergencyDet = new Emergency(type,{},'',startDate,endDate.toISOString(),userid,respAreaId);
+    this.emergencyDet = new Emergency(type, {}, '', startDate, endDate.toISOString(), userid, respAreaId);
     this.emergencyService.createEmergency(this.emergencyDet);
     this.AlertMsg = 'Emergency Alert sent successfully!';
   }

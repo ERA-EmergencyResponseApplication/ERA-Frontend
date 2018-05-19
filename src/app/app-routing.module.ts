@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LocationComponent } from './location/location.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EmergencySelectComponent } from './dashboard/emergencies/emergency-select/emergency-select.component';
+import { EmergencyDetailComponent } from './dashboard/emergencies/emergency-detail/emergency-detail.component';
 
 const routes: Routes = [
     {
@@ -19,7 +21,12 @@ const routes: Routes = [
     },
     {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        children: [
+            {path: '', component: EmergencySelectComponent},
+            {path: 'respArea/:respAreaId/emergency/:emergencyId', component: EmergencyDetailComponent}
+            //{path: ':id/edit', component: ResponseGroupEditComponent},
+        ]
     },
     {
         path: 'responseGrpEdit',

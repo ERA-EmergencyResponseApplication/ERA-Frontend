@@ -5,7 +5,8 @@
           {{ respArea.name }}
       </div>
       <div class="panel-body">
-          <app-emergency *ngFor="let emergency of emergencies" [emergency]=emergency>
+          <app-emergency *ngFor="let emergency of emergencies" [emergency]=emergency
+          [responseArea]=respArea>
           </app-emergency>
       </div>
     </div>
