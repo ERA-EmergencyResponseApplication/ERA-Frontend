@@ -37,6 +37,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ResponseAreaService } from './services/response-area.service';
 import { RegisterComponent } from './register/register.component';
+import { UserService } from '../app/services/user.service';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { RegisterComponent } from './register/register.component';
   providers: [
     AuthGuard,
     AuthenticationService,
-    ResponseAreaService
+    ResponseAreaService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
