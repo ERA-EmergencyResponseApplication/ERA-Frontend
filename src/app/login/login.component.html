@@ -1,14 +1,26 @@
+<!--<div>
+  <div class="inner-container">
+    <input class="username" type="text" name="username" placeholder="Email Address" [(ngModel)]="email" />
+    <input class="password" type="password" name="password" placeholder="Password" [(ngModel)]="password" />
+  </div>
+    <button type="button" pButton icon="fa-check" (click)="login()" label="Login"></button>
+    <button type="button" pButton icon="fa-close" (click)="display=false" label="Cancel"></button>
+</div>-->
+
+
 <div class="container-fluid" style="text-align: center; margin-top: 60px;">
   <div>
     <div style="margin-top: 20px;">
       <label>User Name</label>
-      <input type="text" class="form-control" [(ngModel)]="name" />
+      <input class="username" type="text" [(ngModel)]="email" />
     </div>
   </div>
   <div>
     <div style="margin-top: 20px;">
       <label>Password</label>
-      <input type="text" class="form-control" [(ngModel)]="password" />
+      <input type="password" class="password" [(ngModel)]="password" />
     </div>
   </div>
+  <button type="button" pButton icon="fa-check" (click)="login()" label="Login"></button>
+  <button type="button" pButton icon="fa-close" (click)="display=false" label="Cancel"></button>
 </div>

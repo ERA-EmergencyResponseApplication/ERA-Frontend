@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 import { AuthenticationService } from '../services/authentication.service';
 import { Responder } from '../dashboard/Responder';
+
 
 @Component({
   selector: 'app-header',
@@ -15,7 +18,11 @@ export class HeaderComponent implements OnInit {
   password: string = '';
   responder: Responder;
 
-  constructor(private router: Router, private authService: AuthenticationService) { }
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private authenticationService: AuthenticationService
+  ) { }
 
   ngOnInit() {
   }
@@ -26,7 +33,7 @@ export class HeaderComponent implements OnInit {
   }
 
   signup() {
-    this.authService.signup(this.responder)
+    this.authenticationService.signup(this.responder)
       .subscribe((response: any) => {
         if(response) {
           this.display = false;
@@ -35,11 +42,10 @@ export class HeaderComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.email, this.password)
-      .subscribe((response: any) => {
-        if(response) {
-          this.display = false;
-        }
-      });
+    this.authenticationService.login(this.email, this.password)
+      .subscribe(
+        data => console.log('success'),
+        error => console.log('Failed')
+      );
   }
 }
