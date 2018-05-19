@@ -24,7 +24,7 @@ export class LocationComponent implements OnInit {
   emergencies: any[];
   emergencyDet: Emergency;
 
-  //form
+  // form
   public form: FormGroup;
   public updateForm: FormGroup;
 
