@@ -4,6 +4,7 @@ import endpoints from '../../app/config/endpoints';
 import AbstractService from './abstract.service';
 import axios from 'axios';
 import { ResponseArea } from '../dashboard/ResponseArea';
+import { Responder } from '../dashboard/Responder';
 
 @Injectable()
 export class AuthenticationService extends AbstractService {
@@ -20,6 +21,13 @@ export class AuthenticationService extends AbstractService {
         axios.defaults.headers.common['Authorization'] = token;
         return response;
       });
+  }
+
+  signup(newUser: Responder) {
+    return this.$post(endpoints.signup(), newUser).bind(this)
+      .then((response) => {
+        return response;
+      })
   }
 
 }

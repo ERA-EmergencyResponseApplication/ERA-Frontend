@@ -12,7 +12,8 @@
     <h1 class="inner-container-header">Log In</h1>
     <input class="username" type="text" [(ngModel)]="email" placeholder="Email Address" />
     <input class="password" type="password" [(ngModel)]="password"  placeholder="Password" />
-    <button class="submit-button" type="button" pButton (click)="login()">Sign In</button>  
+    <button class="submit-button" type="button" pButton (click)="login()">Sign In</button> 
+    <a style="cursor: pointer;" (click)="navigateToSignup()">New User? Signup</a> 
   </div>
 </div>
 </div>
