@@ -3,7 +3,8 @@ import { Responder } from '../app/dashboard/Responder';
 import { asyncData } from './async-observable-helpers';
 
 export class ResponseAreaServiceSpy {
-  responseArea = new ResponseArea('Liberty center', '72.5', '74.5', 'Liberty center mall in ohio', 'Address1', 'City1', 'State1', 'Zip1', 1);
+  responseArea = new ResponseArea('Liberty center', '72.5', '74.5',
+'Liberty center mall in ohio', 'Address1', 'City1', 'State1', 'Zip1', 1);
 
   responseAreas: ResponseArea[] = [this.responseArea];
 

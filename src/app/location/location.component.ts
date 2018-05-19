@@ -76,11 +76,11 @@ export class LocationComponent implements OnInit {
   }
 
   private createEmergency() {
-    const respAreaId:number = this.form.get('selectedArea').value.id;
+    const respAreaId: number = this.form.get('selectedArea').value.id;
     const type = this.form.get('selectedEmergency').value.name;
     const userid = +localStorage.getItem('userId');
     const startDate = new Date().toISOString();
-    let endDate = new Date(); 
+    const endDate = new Date();
     endDate.setDate(endDate.getDate() + 1);
     this.emergencyDet = new Emergency(type, {}, '', startDate, endDate.toISOString(), userid, respAreaId);
     this.emergencyService.createEmergency(this.emergencyDet);
@@ -89,7 +89,7 @@ export class LocationComponent implements OnInit {
 
   private updateEmergency() {
     const location_description = this.updateForm.get('locationDetails').value;
-    //need service to update the emergency with more detaiils.
+    // need service to update the emergency with more detaiils.
   }
 
 

@@ -25,7 +25,7 @@ const routes: Routes = [
         children: [
             {path: '', component: EmergencySelectComponent},
             {path: 'respArea/:respAreaId/emergency/:emergencyId', component: EmergencyDetailComponent}
-            //{path: ':id/edit', component: ResponseGroupEditComponent},
+            // {path: ':id/edit', component: ResponseGroupEditComponent},
         ]
     },
     {
