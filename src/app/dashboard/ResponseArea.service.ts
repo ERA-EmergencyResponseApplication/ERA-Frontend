@@ -1,6 +1,5 @@
 import { ResponseArea } from './ResponseArea';
 import { Responder } from './Responder';
-import { Emergency } from './emergencies/emergency/Emergency';
 
 export class ResponseAreaService {
     responseAreas: ResponseArea[] = [];

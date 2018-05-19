@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { ResponseArea } from '../ResponseArea';
-import { EmergenciesService } from './emergencies.service';
-import { Emergency } from './emergency/Emergency';
+import { Emergency } from '../../models/Emergency';
+import { EmergencyService } from '../../services/emergency.service';
 @Component({
   selector: 'app-emergencies',
   templateUrl: './emergencies.component.html',
@@ -9,11 +9,14 @@ import { Emergency } from './emergency/Emergency';
 })
 export class EmergenciesComponent implements OnInit {
   @Input() respArea: ResponseArea;
-  emergencies: Emergency[];
-  constructor(private emergenciesService: EmergenciesService) { }
+  emergencies: Emergency[] = [];
+  constructor(private emergencyService: EmergencyService) { 
+    
+  }
 
   ngOnInit() {
-    console.log(this.respArea);
-    // this.emergencies = this.emergenciesService.getEmergencies(this.respArea);
+    if (this.respArea) {
+      this.emergencies = this.emergencyService.getAllEmergencies(this.respArea.id);
+    }
   }
 }
