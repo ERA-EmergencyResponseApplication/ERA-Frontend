@@ -25,7 +25,6 @@ export class ResponseAreaService extends AbstractService {
   }
 
   getResponseAreasForUser(userId: number): ResponseArea[] {
-    debugger;
     const respArr: ResponseArea[] = [];
     this.$get(endpoints.getResponseAreasOfSubscriber(userId)).bind(this).
     then((response) => {

@@ -83,9 +83,7 @@ export class LocationComponent implements OnInit {
     let endDate =new Date(); 
     endDate.setDate(endDate.getDate() + 1);
     this.emergencyDet = new Emergency(type,{},'',startDate,endDate.toISOString(),userid,respAreaId);
-    //this.emergencyService.createEmergency(this.emergencyDet);
-    this.emergencyService.getEmergencies(respAreaId)
-    .then( response => console.log(response));
+    this.emergencyService.createEmergency(this.emergencyDet);
     this.AlertMsg = 'Emergency Alert sent successfully!';
   }
 

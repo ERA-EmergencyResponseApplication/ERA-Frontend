@@ -10,7 +10,9 @@ import { EmergencyService } from '../../services/emergency.service';
 export class EmergenciesComponent implements OnInit {
   @Input() respArea: ResponseArea;
   emergencies: Emergency[];
-  constructor(private emergencyService: EmergencyService) { }
+  constructor(private emergencyService: EmergencyService) { 
+    this.emergencies = [];
+  }
 
   ngOnInit() {
     if(this.respArea) {
