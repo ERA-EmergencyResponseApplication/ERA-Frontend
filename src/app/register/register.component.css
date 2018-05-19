@@ -4,6 +4,57 @@
   margin-top: -25px;
 }
 
-.response-area-label {
-  display: block !important;
+.register-page-header {
+  padding: 62px 15px 15px;
+  background-color: #f2f3f4;
+}
+
+.register-page-header-text {
+  font-size: 24px;
+}
+
+.register-form-elements {
+  min-width: 340px;
+  max-width: 700px;
+}
+
+.register-form-footer-buttons {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  margin-left: -30px;
+}
+
+.register-submit-button, .register-cancel-button {
+  margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+
+  .register-page-header {
+    padding: 15px 30px;
+  }
+
+  .register-page-header-text {
+    font-size: 28px;
+  }
+
+  .register-form-footer-buttons {
+    position: absolute;
+    padding: 15px;
+    box-shadow: 0 -2px 7px 0 rgba(0, 0, 0, 0.2);
+    justify-content: flex-end;
+  }
+
+  .register-submit-button, .register-cancel-button {
+    margin-right: 15px;
+    margin-left: 0px;
+    max-width: 170px;
+    min-width: 100px;
+  }
+
 }
