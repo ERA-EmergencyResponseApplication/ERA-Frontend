@@ -24,6 +24,8 @@ export class RegisterComponent implements OnInit {
   AlertMsg: string;
   missingFirstName: string;
   missingLastName: string;
+  missingUserName: string;
+  missingPassword: string;
   missingResponseAreas: string;
   missingEmail: string;
   missingPhone: string;
@@ -63,7 +65,7 @@ export class RegisterComponent implements OnInit {
       // this.responder = new Responder(this.fname, this.lname, this.uname, this.respArea, this.email, this.phone);
     this.success = true;
     this.collapse = true;
-    const u = new Responder(this.user.firstName, this.user.lastName, 'abc123', this.user.responseAreas,
+    const u = new Responder(this.user.firstName, this.user.lastName, this.user.userName, this.user.password, this.user.responseAreas,
       this.user.email, this.user.cellNumber);
     this._user.createUser(u);
       this.AlertMsg = 'User added successfully!';
@@ -92,12 +94,16 @@ export class RegisterComponent implements OnInit {
     this.form = new FormGroup({
       'firstname': new FormControl(null, Validators.required),
       'lastname': new FormControl(null, Validators.required),
+      'username': new FormControl(null, Validators.required),
+      'password': new FormControl(null, Validators.required),
       'responseareas': new FormControl(null, Validators.required),
       'email': new FormControl(null, Validators.required),
       'cellnumber': new FormControl(null, Validators.required),
     });
     this.missingFirstName = 'First name required';
     this.missingLastName = 'Last name required';
+    this.missingUserName = 'User name required';
+    this.missingPassword = 'Password required';
     this.missingResponseAreas = 'Response Area required';
     this.missingEmail = 'Email required';
     this.missingPhone = 'Phone required';

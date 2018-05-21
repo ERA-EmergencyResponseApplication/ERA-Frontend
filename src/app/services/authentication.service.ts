@@ -32,6 +32,7 @@ export class AuthenticationService extends AbstractService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('userId');
     axios.defaults.headers.common['Authorization'] = '';
     return;
   }
