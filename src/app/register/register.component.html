@@ -18,6 +18,16 @@
           <input type="text" class="form-control form-textbox resInputs" formControlName="lastname" [(ngModel)]="user.lastName" />
           <p class="help-block errorMsg" *ngIf="form.get('lastname').touched && form.get('lastname').invalid">{{missingLastName}}</p>
         </div>
+        <div>
+          <label class="col-sm-2 col-form-label form-label resLabels">User Name</label>
+          <input type="text" class="form-control form-textbox resInputs" formControlName="username" [(ngModel)]="user.userName" />
+          <p class="help-block errorMsg" *ngIf="form.get('username').touched && form.get('username').invalid">{{missingUserName}}</p>
+        </div>
+        <div>
+          <label class="col-sm-2 col-form-label form-label resLabels">Password</label>
+          <input type="password" class="form-control form-textbox resInputs" formControlName="password" [(ngModel)]="user.password" />
+          <p class="help-block errorMsg" *ngIf="form.get('password').touched && form.get('password').invalid">{{missingPassword}}</p>
+        </div>
         <div class="form-dropdown">
           <div><p-multiSelect [options]="areas" formControlName="responseareas" [(ngModel)]="user.responseAreas" [panelStyle]="{minWidth:'18em'}" defaultLabel="Select Response Area"></p-multiSelect></div>
           <p class="help-block errorMsg" *ngIf="form.get('responseareas').touched && form.get('responseareas').invalid">{{missingResponseAreas}}</p>
