@@ -27,8 +27,8 @@ export class AuthenticationService extends AbstractService {
     return this.loginSubject.asObservable();
   }
 
-  login(username: string, password: string) {
-    return this.$post(endpoints.login(), { username, password }).bind(this)
+  login(email: string, password: string) {
+    return this.$post(endpoints.login(), { email, password }).bind(this)
       .then((response) => {
         const { id: token, userId } = response.data;
         localStorage.setItem('token', token);
