@@ -56,6 +56,10 @@ export class HeaderComponent implements OnDestroy  {
       });
   }
 
+  updateUser() {
+      this.router.navigate(['/register']);
+  }
+
   @HostListener('document:click', ['$event']) clickedOutside($event) {
     this.display = false;
     this.profileInfoClass = 'profile-info';

@@ -13,6 +13,8 @@ export default {
   addSubscriberToResponseArea: (responseAreaId: number, responderId: number) => `${environment.url}/ResponseAreas/
     ${responseAreaId}/subscribers/rel/${responderId}`,
  createUser: () => `${environment.url}/Responders`,
+ getUser: (responderId)  => `${environment.url}/Responders/${responderId}`,
+ updateUser: (responderId) => `${environment.url}/Responders/${responderId}`,
   getEmergency: (emergencyId: number) => `${environment.url}/Emergencies/` + emergencyId,
   getResponseArea: (respAreaId: number) => `${environment.url}/ResponseAreas/` + respAreaId
 };

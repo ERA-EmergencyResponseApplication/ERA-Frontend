@@ -53,7 +53,7 @@ export class ResponderComponent implements OnInit {
 
   AddResponder() {
     if (this.fieldsValid()) {
-      this.responder = new Responder(this.fname, this.lname, this.uname, 'abc123', this.respArea, this.email, this.phone);
+      this.responder = new Responder(this.fname, this.lname,  this.uname, null, this.respArea, this.email, this.phone, 0);
       this.success = true;
       this.collapse = true;
       this.AlertMsg = 'Responder added successfully!';
