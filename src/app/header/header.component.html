@@ -12,6 +12,9 @@
                 <i class="fa fa-user user-icon" aria-hidden="true"></i>
               </a>
               <div class="{{ profileInfoClass }}">
+                  <div class="profile-info-content" (click)="updateUser()">
+                    <span class="profile-info-content-text">Edit Profile</span>
+                  </div>
                   <div class="profile-info-content" (click)="logout($event)">
                     <span class="profile-info-content-text">Logout</span>
                   </div>

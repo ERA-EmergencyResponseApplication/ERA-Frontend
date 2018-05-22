@@ -20,4 +20,8 @@ export class UserService extends AbstractService {
       });
   }
 
+  getUser (responderId: number) {
+    return this.$get(endpoints.getUser(responderId)).bind(this);
+  }
+
 }

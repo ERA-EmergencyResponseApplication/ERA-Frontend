@@ -47,6 +47,10 @@ export class HeaderComponent implements OnInit {
       });
   }
 
+  updateUser() {
+      this.router.navigate(['/register']);
+  }
+
   @HostListener('document:click', ['$event']) clickedOutside($event) {
     this.display = false;
     this.profileInfoClass = 'profile-info';

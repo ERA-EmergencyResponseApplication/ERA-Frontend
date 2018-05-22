@@ -20,7 +20,7 @@
         </div>
         <div>
           <label class="col-sm-2 col-form-label form-label resLabels">User Name</label>
-          <input type="text" class="form-control form-textbox resInputs" formControlName="username" [(ngModel)]="user.userName" />
+          <input type="text" class="form-control form-textbox resInputs" formControlName="username" [(ngModel)]="user.username" />
           <p class="help-block errorMsg" *ngIf="form.get('username').touched && form.get('username').invalid">{{missingUserName}}</p>
         </div>
         <div>

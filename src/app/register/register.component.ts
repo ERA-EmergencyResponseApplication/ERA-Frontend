@@ -5,6 +5,7 @@ import { ResponseArea } from '../dashboard/ResponseArea';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ResponseAreaService } from '../services/response-area.service';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -33,11 +34,13 @@ export class RegisterComponent implements OnInit {
   rAreas: ResponseArea[];
   areas: any[];
   responseAreas: ResponseArea[];
+  pageMode: string;
   public form: FormGroup;
 
   constructor(
     private _responseArea: ResponseAreaService,
-    private _user: UserService  ) {
+    private _user: UserService,
+    private _router: Router  ) {
     this.fname = '';
     this.lname = '';
     this.uname = '';
@@ -58,6 +61,16 @@ export class RegisterComponent implements OnInit {
           this.areas.push({ 'label': this.rAreas[i].name, 'value': this.rAreas[i].id });
         }
       });
+
+    let userId: number = Number(localStorage.getItem('userId'));
+    if(userId && userId > 0) {
+      this.pageMode = 'update';
+      _user.getUser(userId).then(
+        (response) => {
+          this.user = response.data;
+        }
+      );
+    }
   }
 
   AddUser() {
@@ -65,12 +78,13 @@ export class RegisterComponent implements OnInit {
       // this.responder = new Responder(this.fname, this.lname, this.uname, this.respArea, this.email, this.phone);
     this.success = true;
     this.collapse = true;
-    const u = new Responder(this.user.firstName, this.user.lastName, this.user.userName, this.user.password, this.user.responseAreas,
+    const u = new Responder(this.user.firstName, this.user.lastName, this.user.username, this.user.password, this.user.responseAreas,
       this.user.email, this.user.cellNumber);
     this._user.createUser(u);
       this.AlertMsg = 'User added successfully!';
       // this.rCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
-      this.reset();
+      // this.reset();
+      this._router.navigate(['/']);
     // }
   }
 
