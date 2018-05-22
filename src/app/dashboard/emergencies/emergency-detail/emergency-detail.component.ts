@@ -25,8 +25,7 @@ export class EmergencyDetailComponent implements OnInit {
   respAreaId: number;
 
   constructor(private emergencyService: EmergencyService, private route: ActivatedRoute,
-  private respAreaService: ResponseAreaService) {
-   }
+  private respAreaService: ResponseAreaService) { }
 
   ngOnInit() {
     this.route.params.
