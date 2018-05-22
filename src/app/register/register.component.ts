@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit {
   AlertMsg: string;
   missingFirstName: string;
   missingLastName: string;
-  missingUserName: string;
   missingPassword: string;
   missingResponseAreas: string;
   missingEmail: string;
@@ -81,7 +80,7 @@ export class RegisterComponent implements OnInit {
     this.success = true;
     this.collapse = true;
     if(this.pageMode === 'update') {
-      const u = new Responder(this.user.firstName, this.user.lastName, this.user.password, this.user.responseAreas,
+      const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
         this.user.email, this.user.cellNumber, this.user.id);
       this._user.updateUser(u);
       
@@ -91,7 +90,7 @@ export class RegisterComponent implements OnInit {
 
       this.AlertMsg = 'User updated successfully!';
     } else {
-      const u = new Responder(this.user.firstName, this.user.lastName, this.user.password, this.user.responseAreas,
+      const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
       this.user.email, this.user.cellNumber, 0);
       this._user.createUser(u);
       this.AlertMsg = 'User added successfully!';
@@ -119,7 +118,6 @@ export class RegisterComponent implements OnInit {
     this.form = new FormGroup({
       'firstname': new FormControl(null, Validators.required),
       'lastname': new FormControl(null, Validators.required),
-      'username': new FormControl(null, Validators.required),
       'password': new FormControl(null, Validators.required),
       'responseareas': new FormControl(null, Validators.required),
       'email': new FormControl(null, Validators.required),
@@ -127,7 +125,6 @@ export class RegisterComponent implements OnInit {
     });
     this.missingFirstName = 'First name required';
     this.missingLastName = 'Last name required';
-    this.missingUserName = 'User name required';
     this.missingPassword = 'Password required';
     this.missingResponseAreas = 'Response Area required';
     this.missingEmail = 'Email required';
