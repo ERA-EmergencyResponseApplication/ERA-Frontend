@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -11,8 +11,6 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  display = false;
-
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -21,15 +19,34 @@ export class HeaderComponent implements OnInit {
 
   email: string;
   password: string;
+  display: boolean;
+  profileInfoClass = 'profile-info';
 
   ngOnInit() {
   }
 
-  showDialog() {
-    this.display = true;
+  showDialog($event: Event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    this.display = !this.display;
+    this.profileInfoClass = this.display ? 'profile-info open' : 'profile-info';
   }
 
   login() {
     this.authenticationService.login(this.email, this.password);
+  }
+
+  logout($event: Event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    this.display = false;
+    this.profileInfoClass = 'profile-info';
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
+  }
+
+  @HostListener('document:click', ['$event']) clickedOutside($event) {
+    this.display = false;
+    this.profileInfoClass = 'profile-info';
   }
 }
