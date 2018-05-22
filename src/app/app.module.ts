@@ -12,7 +12,6 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ResponseGroupEditorComponent } from './response-group-editor/response-group-editor.component';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LocationComponent } from './location/location.component';
@@ -42,6 +41,7 @@ import { EmergencyDetailComponent } from './dashboard/emergencies/emergency-deta
 import { EmergencyComponent } from './dashboard/emergencies/emergency/emergency.component';
 import { EmergenciesComponent } from './dashboard/emergencies/emergencies.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -85,7 +85,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CodeHighlighterModule,
     PasswordModule,
     InputTextareaModule,
-    MultiSelectModule
+    MultiSelectModule,
+    CardModule
   ],
   providers: [
     AuthGuard,

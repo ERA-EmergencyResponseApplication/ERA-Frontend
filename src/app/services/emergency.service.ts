@@ -33,4 +33,8 @@ export class EmergencyService extends AbstractService {
       });
       return emergencies;
     }
+
+    getEmergency(emergencyId: number) {
+      return this.$get(endpoints.getEmergency(emergencyId)).bind(this);
+    }
 }

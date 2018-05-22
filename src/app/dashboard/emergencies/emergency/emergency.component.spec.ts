@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmergencyComponent } from './emergency.component';
-import { Emergency } from './Emergency';
+import { Emergency } from '../../../models/Emergency';
 
 describe('EmergencyComponent', () => {
   let component: EmergencyComponent;
@@ -17,7 +17,8 @@ describe('EmergencyComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EmergencyComponent);
     component = fixture.componentInstance;
-    component.emergency = new Emergency('72', '70', 'Fire', 'Liberty', new Date());
+    component.emergency = new Emergency('Fire', {}, 'Location1', new Date().toISOString(),
+    new Date().toISOString(), 1, 1, 2);
     fixture.detectChanges();
   });
 
