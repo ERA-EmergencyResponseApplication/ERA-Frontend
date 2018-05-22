@@ -14,8 +14,8 @@ import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
     {
         path: '',
-        component: HomeComponent,
-        canActivate: [AuthGuard]
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
     },
     {
         path: 'login',
@@ -28,6 +28,7 @@ const routes: Routes = [
     {
         path: 'dashboard',
         component: DashboardComponent,
+        canActivate: [AuthGuard],
         children: [
             {path: '', component: EmergencySelectComponent},
             {path: 'respArea/:respAreaId/emergency/:emergencyId', component: EmergencyDetailComponent}

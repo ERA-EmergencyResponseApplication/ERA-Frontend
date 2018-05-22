@@ -1,11 +1,14 @@
 <div class="header-body">
 <div class="background-container"> 
-  <div class="inner-container">
+  <form [formGroup]="form" (ngSubmit)="login()" class="inner-container">
+    <div *ngIf="error" class="login-error">Incorrect credentials. Please try again.</div>
     <h1 class="inner-container-header">Log In</h1>
-    <input class="form-textbox username" type="text" [(ngModel)]="email" placeholder="Email Address" />
-    <input class="form-textbox password" type="password" [(ngModel)]="password" placeholder="Password" />
-    <button class="button-base primary-button" type="button" pButton (click)="login()">Sign In</button>
+    <input class="form-textbox username" type="text" formControlName="email" [(ngModel)]="email" placeholder="Email Address" />
+    <p class="help-block errorMsg" *ngIf="form.get('email').touched && form.get('email').invalid">{{missingEmail}}</p>
+    <input class="form-textbox password" type="password" formControlName="password" [(ngModel)]="password" placeholder="Password" />
+    <p class="help-block errorMsg" *ngIf="form.get('password').touched && form.get('password').invalid">{{missingPassword}}</p>
+    <button class="button-base primary-button" type="submit" pButton>Sign In</button>
     <button class="button-base ui-button-secondary" type="button" pButton routerLink="/register">Register</button>
-  </div>
+  </form>
 </div>
 </div>
