@@ -70,22 +70,33 @@ export class RegisterComponent implements OnInit {
           this.user = response.data;
         }
       );
+    } else {
+      this.pageMode = 'register'
     }
   }
 
   AddUser() {
-    // if (this.fieldsValid()) {
-      // this.responder = new Responder(this.fname, this.lname, this.uname, this.respArea, this.email, this.phone);
+    console.log('user', this.user);
+    console.log('responseAreas', this.responseAreas);
     this.success = true;
     this.collapse = true;
-    const u = new Responder(this.user.firstName, this.user.lastName, this.user.username, this.user.password, this.user.responseAreas,
-      this.user.email, this.user.cellNumber);
-    this._user.createUser(u);
+    if(this.pageMode === 'update') {
+      const u = new Responder(this.user.firstName, this.user.lastName, this.user.username, this.user.password, this.user.responseAreas,
+        this.user.email, this.user.cellNumber, this.user.id);
+      this._user.updateUser(u);
+      
+      // for(let responseAreaId of this.responseAreas) {
+      //   this.
+      // }
+
+      this.AlertMsg = 'User updated successfully!';
+    } else {
+      const u = new Responder(this.user.firstName, this.user.lastName, this.user.username, this.user.password, this.user.responseAreas,
+      this.user.email, this.user.cellNumber, 0);
+      this._user.createUser(u);
       this.AlertMsg = 'User added successfully!';
-      // this.rCreated.emit({ success: this.success, alertMsg: this.AlertMsg });
-      // this.reset();
-      this._router.navigate(['/']);
-    // }
+    }
+    this._router.navigate(['/']);
   }
 
   reset() {

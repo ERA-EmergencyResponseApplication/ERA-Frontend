@@ -24,4 +24,11 @@ export class UserService extends AbstractService {
     return this.$get(endpoints.getUser(responderId)).bind(this);
   }
 
+  updateUser (user: Responder) {
+    return this.$put(endpoints.updateUser(user.id), user).bind(this)
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
 }
