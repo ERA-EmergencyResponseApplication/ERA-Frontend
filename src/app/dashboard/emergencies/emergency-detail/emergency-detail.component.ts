@@ -25,15 +25,18 @@ export class EmergencyDetailComponent implements OnInit {
   respAreaId: number;
 
   constructor(private emergencyService: EmergencyService, private route: ActivatedRoute,
-  private respAreaService: ResponseAreaService) {
+  private respAreaService: ResponseAreaService) { }
+
+  ngOnInit() {
     this.route.params.
     subscribe( (params: Params) => {
       this.emergencyId = params['emergencyId'];
       this.respAreaId = params['respAreaId'];
+      this.getResponses();
     });
-   }
+  }
 
-  ngOnInit() {
+  getResponses() {
     const emergencyPromise: Promise<any> = this.emergencyService.getEmergency(this.emergencyId);
     emergencyPromise.then((response) => {
       this.emergency = response.data;
