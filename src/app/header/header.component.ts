@@ -41,8 +41,10 @@ export class HeaderComponent implements OnInit {
     $event.stopPropagation();
     this.display = false;
     this.profileInfoClass = 'profile-info';
-    this.authenticationService.logout();
-    this.router.navigate(['/login']);
+    this.authenticationService.logout()
+      .then(() => {
+        this.router.navigate(['/login']);
+      });
   }
 
   @HostListener('document:click', ['$event']) clickedOutside($event) {
