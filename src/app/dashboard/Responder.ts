@@ -4,7 +4,6 @@ export class Responder {
   cellNumber: string;
   firstName: string;
   lastName: string;
-  userName: string;
   email: string;
   responseAreas: ResponseArea[] = [];
   password: string;
@@ -14,7 +13,6 @@ export class Responder {
   constructor(
     firstName: string,
     lastName: string,
-    userName: string,
     password: string,
     responseAreas: any,
     email: string,
@@ -23,7 +21,6 @@ export class Responder {
   ) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.userName = userName;
     this.email = email;
     this.cellNumber = cellNumber;
     this.responseAreas = responseAreas;
