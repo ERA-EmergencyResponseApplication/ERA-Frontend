@@ -19,6 +19,9 @@ export class HeaderComponent implements OnDestroy  {
     private authenticationService: AuthenticationService
   ) {
     this.subscription = this.authenticationService.getMessage().subscribe(token => { this.token = token; });
+    if (localStorage.getItem('token')) {
+      this.token = localStorage.getItem('token');
+    }
   }
 
   email: string;
