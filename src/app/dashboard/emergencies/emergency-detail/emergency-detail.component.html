@@ -1,3 +1,15 @@
-<p>
-  emergency-detail works!
-</p>
+<div class="row">
+  <div class="col-md-8 col-sm-12 col-xs-12">
+    <p-card [title]="type" subtitle="{{ name }}" tyleClass="ui-card-shadow"> 
+        <p>{{ address }}
+        <br/>
+        {{ cityZip }}
+        </p>
+        <p>
+          {{ locationDesc }}
+        </p>
+      <p-footer>
+      </p-footer>
+    </p-card>
+  </div>
+</div>
