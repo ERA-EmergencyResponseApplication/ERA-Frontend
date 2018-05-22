@@ -6,8 +6,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LocationComponent } from './location/location.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { SignupComponent } from './signup/signup.component';
 import { EmergencySelectComponent } from './dashboard/emergencies/emergency-select/emergency-select.component';
 import { EmergencyDetailComponent } from './dashboard/emergencies/emergency-detail/emergency-detail.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
     {
@@ -18,6 +20,10 @@ const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'signup',
+        component: SignupComponent
     },
     {
         path: 'dashboard',
@@ -35,6 +41,10 @@ const routes: Routes = [
     {
         path: 'location',
         component: LocationComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
     }
 ];
 

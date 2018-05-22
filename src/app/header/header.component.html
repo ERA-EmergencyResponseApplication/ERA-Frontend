@@ -1,23 +1,22 @@
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <a class="navbar-brand" routerLink = "/">Emergency Response</a>
+<nav class="navbar navbar-inverse navigation-bar">
+        <a class="navbar-brand header-text" routerLink = "/">Emergency Response</a>
         <div class="nav navbar-collapse">
-          <ul class="nav navbar-nav" style="float: none;">
-            <li class="nav-item dropdown" style="float:right;">
-              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <span class="badge">0</span>
+          <ul *ngIf="token" class="nav navbar-nav header-icons">
+            <li class="nav-item">
+                <a routerLink="/location" class="create-alert">
+                  <img class="create-alert-img" src="../../assets/icons/Alert.png">
+                </a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link user-icon-link" role="button" (click)="showDialog($event)">
+                <i class="fa fa-user user-icon" aria-hidden="true"></i>
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="">LogOut</a>              
-              </div>
-            </li>
-            <li style="float:right;">
-              <a routerLink="/location" style="position: fixed; bottom: 30px; right: 30px;">
-                <img src="../../assets/icons/Alert.png">
-              </a>
+              <div class="{{ profileInfoClass }}">
+                  <div class="profile-info-content" (click)="logout($event)">
+                    <span class="profile-info-content-text">Logout</span>
+                  </div>
+                </div>
             </li>
           </ul>
         </div>
-    </div>
 </nav>

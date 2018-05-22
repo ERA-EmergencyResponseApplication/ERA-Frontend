@@ -35,13 +35,17 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ResponseAreaService } from './services/response-area.service';
+import { SignupComponent } from './signup/signup.component';
+import { ValidationService } from './services/validation.service';
 import { EmergencyService } from './services/emergency.service';
 import { EmergencySelectComponent } from './dashboard/emergencies/emergency-select/emergency-select.component';
 import { EmergencyDetailComponent } from './dashboard/emergencies/emergency-detail/emergency-detail.component';
 import { EmergencyComponent } from './dashboard/emergencies/emergency/emergency.component';
 import { EmergenciesComponent } from './dashboard/emergencies/emergencies.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegisterComponent } from './register/register.component';
 import { CardModule } from 'primeng/card';
+import { UserService } from '../app/services/user.service';
 
 @NgModule({
   declarations: [
@@ -53,11 +57,13 @@ import { CardModule } from 'primeng/card';
     ResponseAreaComponent,
     LoginComponent,
     ResponderComponent,
+    SignupComponent,
     DashboardComponent,
     EmergenciesComponent,
     EmergencyComponent,
     EmergencyDetailComponent,
-    EmergencySelectComponent
+    EmergencySelectComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +98,9 @@ import { CardModule } from 'primeng/card';
     AuthGuard,
     AuthenticationService,
     ResponseAreaService,
-    EmergencyService
+    EmergencyService,
+    UserService,
+    ValidationService
   ],
   bootstrap: [AppComponent]
 })

@@ -48,6 +48,7 @@ html {
   text-rendering: optimizeLegibility;
   font-family: sans-serif;
   color: #3b3d40;
+  text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
@@ -70,4 +71,53 @@ body {
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin: 60px 30px;
+}
+
+.form-textbox {
+  display: block;
+  border-radius: 3px;
+  height: 44px;
+  width: calc(100% - 1px);
+  border: 1px solid #3b3d40;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  padding-left: 0;
+}
+
+.form-dropdown {
+  margin-bottom: 16px;
+  margin-top: 10px;
+}
+
+.button-base {
+  border: 1px solid #0a74c7;
+  border-radius: 3px;
+  height: 44px;
+  width: calc(100% - 1px);
+  font-size: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  padding: 9px 6px;
+  align-items: flex-start;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.primary-button {
+  background: #0a74c7;
+  color: #fff;
+}
+
+.primary-button:hover {
+  background: #06508a;
 }
