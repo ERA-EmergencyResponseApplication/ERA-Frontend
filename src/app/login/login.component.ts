@@ -30,10 +30,11 @@ export class LoginComponent implements OnInit {
   ) {
     this.AlertMsg = '';
     this.subscription = this.authenticationService.getMessage().subscribe(token => { this.AlertMsg = token; });
-    if (this.AlertMsg)
+    if (this.AlertMsg) {
       this.regSuccess = true;
-    else
+    } else {
       this.regSuccess = false;
+    }
   }
 
   ngOnInit() {
