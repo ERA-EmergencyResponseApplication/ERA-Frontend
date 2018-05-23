@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AuthenticationService } from '../services/authentication.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs/Subscription';
-import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -20,24 +18,15 @@ export class LoginComponent implements OnInit {
   missingPassword: string;
   error: boolean;
   regSuccess: boolean;
-  message: string;
-  subscription: Subscription;
+  AlertMsg: string;
   public form: FormGroup;
 
   constructor(
     private router: Router,
     private http: HttpClient,
     private authenticationService: AuthenticationService,
-    private userService: UserService
-  ) {
-    this.subscription = this.userService.message.subscribe(
-      (message) => { this.message = message; });
-    if (this.message) {
-      this.regSuccess = true;
-    } else {
-      this.regSuccess = false;
-    }
-  }
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -46,6 +35,14 @@ export class LoginComponent implements OnInit {
     });
     this.missingEmail = 'Email required';
     this.missingPassword = 'Password required';
+
+    this.route.queryParams
+      .subscribe(params => { this.AlertMsg = params.message; });
+    if (this.AlertMsg) {
+      this.regSuccess = true;
+    } else {
+      this.regSuccess = false;
+    }
   }
 
   login() {

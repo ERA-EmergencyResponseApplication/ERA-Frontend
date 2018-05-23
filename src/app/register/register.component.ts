@@ -82,6 +82,7 @@ export class RegisterComponent implements OnInit {
     console.log('responseAreas', this.responseAreas);
     this.success = true;
     this.collapse = true;
+
     if (this.pageMode === 'update') {
       const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
       this.user.email, this.user.cellNumber, this.user.id);
@@ -94,8 +95,7 @@ export class RegisterComponent implements OnInit {
       this.AlertMsg = 'User added successfully!';
       this._user.createUser(u)
         .then(response => {
-          this._user.setMessage(this.AlertMsg);
-          this.router.navigate(['/login']);
+          this.router.navigate(['/login'], { queryParams: { message: 'User added successfully!' } });
         });
     }
   }
