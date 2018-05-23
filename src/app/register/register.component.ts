@@ -96,7 +96,7 @@ export class RegisterComponent implements OnInit {
         .then(response => {
           this.authenticationService.sendMessage(this.AlertMsg);
           this.router.navigate(['/login']);
-        })
+        });
     }
   }
 
