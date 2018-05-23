@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ResponseAreaService } from '../services/response-area.service';
 import { Emergency } from '../models/Emergency';
 import { EmergencyService } from '../services/emergency.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-location',
@@ -24,13 +25,15 @@ export class LocationComponent implements OnInit {
   area: string;
   emergencies: any[];
   emergencyDet: Emergency;
+  emergencyUpd: Emergency;
 
   // form
   public form: FormGroup;
   public updateForm: FormGroup;
 
 
-  constructor(private _responseArea: ResponseAreaService, private emergencyService: EmergencyService) {
+  constructor(private _responseArea: ResponseAreaService, private router: Router,
+    private emergencyService: EmergencyService) {
     if (navigator) {
       navigator.geolocation.getCurrentPosition(pos => {
         this.lng = +pos.coords.longitude;
@@ -57,6 +60,7 @@ export class LocationComponent implements OnInit {
   }
 
   UpdAlert() {
+    this.updateEmergency();
     this.AlertMsg = 'Emergency Alert updated successfully!';
   }
 
@@ -83,13 +87,20 @@ export class LocationComponent implements OnInit {
     const endDate = new Date();
     endDate.setDate(endDate.getDate() + 1);
     this.emergencyDet = new Emergency(type, {}, '', startDate, endDate.toISOString(), userid, respAreaId);
-    this.emergencyService.createEmergency(this.emergencyDet);
+    const emergencyCreatedPromise: Promise<any> = this.emergencyService.createEmergency(this.emergencyDet);
+    emergencyCreatedPromise.then((response) => {
+      this.emergencyUpd = response.data;
+    });
     this.AlertMsg = 'Emergency Alert sent successfully!';
   }
 
   private updateEmergency() {
     const location_description = this.updateForm.get('locationDetails').value;
-    // need service to update the emergency with more detaiils.
+    this.emergencyUpd.location_description = location_description;
+    this.emergencyService.updateEmergency(this.emergencyUpd.id, this.emergencyUpd);
+    setTimeout(() => {
+      this.router.navigate(['/dashboard']);
+    }, 1000);
   }
 
 

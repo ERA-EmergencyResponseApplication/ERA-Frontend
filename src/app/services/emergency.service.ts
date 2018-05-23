@@ -11,10 +11,7 @@ export class EmergencyService extends AbstractService {
       }
 
     createEmergency(emergency: Emergency) {
-      return this.$post(endpoints.createEmergency(), emergency).bind(this)
-        .then((response) => {
-          console.log(response);
-        });
+      return this.$post(endpoints.createEmergency(), emergency).bind(this);
     }
 
     getEmergencies(respAreaId: number) {
@@ -36,5 +33,9 @@ export class EmergencyService extends AbstractService {
 
     getEmergency(emergencyId: number) {
       return this.$get(endpoints.getEmergency(emergencyId)).bind(this);
+    }
+
+    updateEmergency(emergencyId: number, emergency: Emergency) {
+      return this.$put(endpoints.getEmergency(emergencyId), emergency).bind(this);
     }
 }
