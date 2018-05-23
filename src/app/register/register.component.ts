@@ -95,7 +95,7 @@ export class RegisterComponent implements OnInit {
       this.AlertMsg = 'User added successfully!';
       this._user.createUser(u)
         .then(response => {
-          this.router.navigate(['/login'], { queryParams: { message: 'User added successfully!' } });
+          this.router.navigate(['/login'], { queryParams: { message: this.AlertMsg } });
         });
     }
   }
