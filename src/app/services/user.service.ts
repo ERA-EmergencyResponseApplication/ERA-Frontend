@@ -7,11 +7,18 @@ import { Responder } from '../dashboard/Responder';
 import AbstractService from './abstract.service';
 import endpoints from '../../app/config/endpoints';
 import { ResponseArea } from '../dashboard/ResponseArea';
+import { Subject } from 'rxjs/Subject';
+
 
 @Injectable()
 export class UserService extends AbstractService {
+  public message = new Subject<string>();
   constructor() {
     super();
+  }
+
+  setMessage(value: string) {
+    this.message.next(value);
   }
 
   createUser(user: Responder) {

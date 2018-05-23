@@ -94,7 +94,7 @@ export class RegisterComponent implements OnInit {
       this.AlertMsg = 'User added successfully!';
       this._user.createUser(u)
         .then(response => {
-          this.authenticationService.sendMessage(this.AlertMsg);
+          this._user.setMessage(this.AlertMsg);
           this.router.navigate(['/login']);
         });
     }
