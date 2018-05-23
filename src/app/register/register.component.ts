@@ -61,8 +61,8 @@ export class RegisterComponent implements OnInit {
         }
       });
 
-    let userId: number = Number(localStorage.getItem('userId'));
-    if(userId && userId > 0) {
+    const userId: number = Number(localStorage.getItem('userId'));
+    if (userId && userId > 0) {
       this.pageMode = 'update';
       _user.getUser(userId).then(
         (response) => {
@@ -70,7 +70,7 @@ export class RegisterComponent implements OnInit {
         }
       );
     } else {
-      this.pageMode = 'register'
+      this.pageMode = 'register';
     }
   }
 
@@ -79,14 +79,10 @@ export class RegisterComponent implements OnInit {
     console.log('responseAreas', this.responseAreas);
     this.success = true;
     this.collapse = true;
-    if(this.pageMode === 'update') {
+    if (this.pageMode === 'update') {
       const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
-        this.user.email, this.user.cellNumber, this.user.id);
+      this.user.email, this.user.cellNumber, this.user.id);
       this._user.updateUser(u);
-      
-      // for(let responseAreaId of this.responseAreas) {
-      //   this.
-      // }
 
       this.AlertMsg = 'User updated successfully!';
     } else {
