@@ -7,6 +7,7 @@ import { ResponseAreaService } from '../services/response-area.service';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -39,7 +40,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private _responseArea: ResponseAreaService,
     private _user: UserService,
-    private _router: Router  ) {
+    private router: Router
+  ) {
     this.fname = '';
     this.lname = '';
     this.uname = '';
@@ -91,7 +93,7 @@ export class RegisterComponent implements OnInit {
       this._user.createUser(u);
       this.AlertMsg = 'User added successfully!';
     }
-    this._router.navigate(['/']);
+    // this._router.navigate(['/']);
   }
 
   reset() {
