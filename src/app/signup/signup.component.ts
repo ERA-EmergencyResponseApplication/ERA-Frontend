@@ -87,7 +87,7 @@ export class SignupComponent implements OnInit {
     }
 
     if (this.isFormValid) {
-      const newUser = new Responder(this.firstName, this.lastName, null, null, this.email, this.phone, this.password);
+      const newUser = new Responder(this.firstName, this.lastName, null, null, this.email, this.phone, this.password, 0);
       this.authService.signup(newUser)
       .then((response) => {
         if (response) {

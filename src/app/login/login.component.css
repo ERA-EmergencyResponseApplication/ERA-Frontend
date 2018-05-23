@@ -1,5 +1,5 @@
 .header-body {
-  background: url("../../assets/icons/background.jpg") no-repeat;
+  background: url("../../assets/icons/background.jpg") repeat;
   background-position: center center;
   -webkit-background-size: auto;
   -moz-background-size: auto;
@@ -55,6 +55,13 @@
   padding: 0 0 0  45px;
   font-size: 16px;
   color: #3b3d40;
+}
+
+.login-error {
+  font-size: 18px;
+  font-weight: 900;
+  color: red;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {

@@ -19,6 +19,9 @@ export class HeaderComponent implements OnDestroy  {
     private authenticationService: AuthenticationService
   ) {
     this.subscription = this.authenticationService.getMessage().subscribe(token => { this.token = token; });
+    if (localStorage.getItem('token')) {
+      this.token = localStorage.getItem('token');
+    }
   }
 
   email: string;
@@ -51,6 +54,10 @@ export class HeaderComponent implements OnDestroy  {
         this.authenticationService.clearMessage();
         this.router.navigate(['/login']);
       });
+  }
+
+  updateUser() {
+      this.router.navigate(['/register']);
   }
 
   @HostListener('document:click', ['$event']) clickedOutside($event) {

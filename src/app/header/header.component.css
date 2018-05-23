@@ -80,6 +80,7 @@
   height: 44px;
   justify-content: center;
   z-index: 5500;
+  background-color: #fff;
 }
 
 .profile-info-content:hover {
@@ -89,6 +90,8 @@
 
 .profile-info-content-text {
   padding: 10px;
+  background-color: #fff;
+  z-index: 5500;
 }
 
 .navigation-bar {
