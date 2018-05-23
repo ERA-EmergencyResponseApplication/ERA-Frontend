@@ -38,9 +38,9 @@ export class ResponseAreaService extends AbstractService {
   }
 
 
-  addSubscriberToResponseArea(responderId: number, responseAreaId: number) {
-    return this.$put(endpoints.addSubscriberToResponseArea(responseAreaId, responderId)).bind(this);
-  }
+  // addSubscriberToResponseArea(responderId: number, responseAreaId: any[]) {
+  //  return this.$put(endpoints.addSubscriberToResponseArea(responseAreaId, responderId)).bind(this);
+  // }
 
   getResponseAreaById(respAreaId: number) {
     return this.$get(endpoints.getResponseArea(respAreaId)).bind(this);
