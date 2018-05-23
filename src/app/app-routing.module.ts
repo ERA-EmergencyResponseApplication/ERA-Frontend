@@ -10,6 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 import { EmergencySelectComponent } from './dashboard/emergencies/emergency-select/emergency-select.component';
 import { EmergencyDetailComponent } from './dashboard/emergencies/emergency-detail/emergency-detail.component';
 import { RegisterComponent } from './register/register.component';
+import { ViewEmergencyComponent } from './view-emergency/view-emergency.component';
 
 const routes: Routes = [
     {
@@ -36,8 +37,9 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'responseGrpEdit',
-        component: ResponseGroupEditorComponent
+        path: 'events/:emergencyId',
+        component: ViewEmergencyComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'location',

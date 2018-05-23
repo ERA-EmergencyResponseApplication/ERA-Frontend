@@ -46,6 +46,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './register/register.component';
 import { CardModule } from 'primeng/card';
 import { UserService } from '../app/services/user.service';
+import { ViewEmergencyComponent } from './view-emergency/view-emergency.component';
+import {ToolbarModule} from 'primeng/toolbar';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import { UserService } from '../app/services/user.service';
     EmergencyComponent,
     EmergencyDetailComponent,
     EmergencySelectComponent,
-    RegisterComponent
+    RegisterComponent,
+    ViewEmergencyComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +95,8 @@ import { UserService } from '../app/services/user.service';
     PasswordModule,
     InputTextareaModule,
     MultiSelectModule,
-    CardModule
+    CardModule,
+    ToolbarModule
   ],
   providers: [
     AuthGuard,
