@@ -19,8 +19,7 @@ export class ViewEmergencyComponent implements OnInit {
   address: string;
   startDateTime: string;
   additionalIndo: string;
-  
-  
+
   constructor(private emergencyService: EmergencyService, private route: ActivatedRoute,
     private responseAreaService: ResponseAreaService) { }
 
