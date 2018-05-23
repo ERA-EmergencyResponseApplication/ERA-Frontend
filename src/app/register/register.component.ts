@@ -6,7 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ResponseAreaService } from '../services/response-area.service';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
-
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -40,7 +40,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private _responseArea: ResponseAreaService,
     private _user: UserService,
-    private router: Router
+    private router: Router,
+    private authenticationService: AuthenticationService
   ) {
     this.fname = '';
     this.lname = '';
@@ -89,11 +90,14 @@ export class RegisterComponent implements OnInit {
       this.AlertMsg = 'User updated successfully!';
     } else {
       const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
-      this.user.email, this.user.cellNumber, 0);
-      this._user.createUser(u);
+        this.user.email, this.user.cellNumber);
       this.AlertMsg = 'User added successfully!';
+      this._user.createUser(u)
+        .then(response => {
+          this.authenticationService.sendMessage(this.AlertMsg);
+          this.router.navigate(['/login']);
+        })
     }
-    // this._router.navigate(['/']);
   }
 
   reset() {
