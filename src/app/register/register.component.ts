@@ -81,12 +81,8 @@ export class RegisterComponent implements OnInit {
     this.collapse = true;
     if (this.pageMode === 'update') {
       const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
-        this.user.email, this.user.cellNumber, this.user.id);
+      this.user.email, this.user.cellNumber, this.user.id);
       this._user.updateUser(u);
-
-      // for(let responseAreaId of this.responseAreas) {
-      //   this.
-      // }
 
       this.AlertMsg = 'User updated successfully!';
     } else {
