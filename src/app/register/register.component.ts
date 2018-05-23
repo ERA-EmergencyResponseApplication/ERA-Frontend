@@ -14,12 +14,6 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  fname: string;
-  lname: string;
-  uname: string;
-  email: string;
-  cemail: string;
-  phone: string;
   respArea: string;
   success: boolean;
   collapse: boolean;
@@ -43,12 +37,6 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService
   ) {
-    this.fname = '';
-    this.lname = '';
-    this.uname = '';
-    this.email = '';
-    this.cemail = '';
-    this.phone = '';
     this.responseAreas = [];
     this.success = false;
     this.collapse = true;
@@ -78,15 +66,13 @@ export class RegisterComponent implements OnInit {
   }
 
   AddUser() {
-    console.log('user', this.user);
-    console.log('responseAreas', this.responseAreas);
     this.success = true;
     this.collapse = true;
+
     if (this.pageMode === 'update') {
       const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
       this.user.email, this.user.cellNumber, this.user.id);
       this._user.updateUser(u);
-
       this.AlertMsg = 'User updated successfully!';
     } else {
       const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
@@ -94,19 +80,12 @@ export class RegisterComponent implements OnInit {
       this.AlertMsg = 'User added successfully!';
       this._user.createUser(u)
         .then(response => {
-          this.authenticationService.sendMessage(this.AlertMsg);
-          this.router.navigate(['/login']);
+          this.router.navigate(['/login'], { queryParams: { message: this.AlertMsg } });
         });
     }
   }
 
   reset() {
-    this.fname = '';
-    this.lname = '';
-    this.uname = '';
-    this.email = '';
-    this.cemail = '';
-    this.phone = '';
     this.responseAreas = [];
     this.missingFirstName = '';
     this.missingLastName = '';

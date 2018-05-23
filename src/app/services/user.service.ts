@@ -8,6 +8,7 @@ import AbstractService from './abstract.service';
 import endpoints from '../../app/config/endpoints';
 import { ResponseArea } from '../dashboard/ResponseArea';
 
+
 @Injectable()
 export class UserService extends AbstractService {
   constructor() {
