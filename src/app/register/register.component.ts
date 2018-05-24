@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
   areas: any[];
   responseAreas: ResponseArea[];
   pageMode: string;
+  userAreas: any[];
   public form: FormGroup;
 
   constructor(
@@ -43,6 +44,7 @@ export class RegisterComponent implements OnInit {
     this.rAreas = [];
     this.areas = [];
     this.user = {};
+    this.userAreas = [];
 
     _responseArea.getResponseAreas()
       .then(response => {
@@ -55,11 +57,14 @@ export class RegisterComponent implements OnInit {
     const userId: number = Number(localStorage.getItem('userId'));
     if (userId && userId > 0) {
       this.pageMode = 'update';
+      this.user.responseAreas = [];
       _user.getUser(userId).then(
         (response) => {
           this.user = response.data;
-          this.user.responseAreas = [];
-          this.user.responseAreas = this._responseArea.getResponseAreasForUser(this.user.id);
+
+          this._responseArea.getResponseAreasForUser(userId).then((userAreas) => {
+            this.user.responseAreas = userAreas.data;
+          });
         }
       );
     } else {
