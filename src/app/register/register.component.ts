@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
         (response) => {
           this.user = response.data;
           this.user.responseAreas = [];
-          this.user.responseAreas = this._responseArea.getResponseAreasForUser(this.user.id)
+          this.user.responseAreas = this._responseArea.getResponseAreasForUser(this.user.id);
         }
       );
     } else {
@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
     this.success = true;
     this.collapse = true;
 
-    if (this.pageMode === 'update') {     
+    if (this.pageMode === 'update') {
           const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
             this.user.email, this.user.cellNumber, this.user.id);
           this._user.updateUser(u);
