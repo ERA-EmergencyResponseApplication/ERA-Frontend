@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
      const userId: number = +localStorage.getItem('userId');
-     this.responseAreas = this.respAreaService.getResponseAreasForUser(userId);
+     this.responseAreas = this.respAreaService.getResponseAreasForResponder(userId);
   }
 
 }
