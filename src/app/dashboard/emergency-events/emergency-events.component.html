@@ -1,11 +1,23 @@
 <div class="row">
     <div class="col-md-12">
-      <div class="panel panel-default">
+      <div class="panel panel-primary">
         <div class="panel-heading">
             {{ respArea.name }}
         </div>
         <div class="panel-body">
-          <p-dataView #dv [value]="emergencies">
+          <p-dataView #dv [value]="emergencies" filterBy="type"
+          [sortField]="sortField" [sortOrder]="sortOrder">
+              <p-header>
+                  <div class="ui-helper-clearfix">
+                      <div class="ui-g">
+                          <div class="ui-g-6 ui-md-4 filter-container">
+                              <div style="position:relative">
+                                  <input type="search" pInputText placeholder="Search by type" (keyup)="dv.filter($event.target.value)">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </p-header>
               <ng-template let-emergency pTemplate="listItem">
                 <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
                   <div class="ui-g-12 ui-md-3" style="text-align:center">
