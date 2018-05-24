@@ -58,6 +58,8 @@ export class RegisterComponent implements OnInit {
       _user.getUser(userId).then(
         (response) => {
           this.user = response.data;
+          this.user.responseAreas = [];
+          this.user.responseAreas = this._responseArea.getResponseAreasForUser(this.user.id)
         }
       );
     } else {
@@ -69,11 +71,11 @@ export class RegisterComponent implements OnInit {
     this.success = true;
     this.collapse = true;
 
-    if (this.pageMode === 'update') {
-      const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
-      this.user.email, this.user.cellNumber, this.user.id);
-      this._user.updateUser(u);
-      this.AlertMsg = 'User updated successfully!';
+    if (this.pageMode === 'update') {     
+          const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
+            this.user.email, this.user.cellNumber, this.user.id);
+          this._user.updateUser(u);
+          this.AlertMsg = 'User updated successfully!';
     } else {
       const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
         this.user.email, this.user.cellNumber);
