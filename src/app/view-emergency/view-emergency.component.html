@@ -1,4 +1,9 @@
 <div class="row">
+  <div *ngIf="success" class="alert alert-success" role="alert">
+      {{alertMessage}}
+  </div>
+</div>
+<div class="row">
   <div class="col-md-1">
     <img src="../../assets/icons/{{type}}.png" style="max-width: 50px;" class="img-thumbnail">
   </div>
@@ -30,7 +35,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-          <h3>Current Status : </h3> <p>test</p>
+          <h3>Current Status : </h3> <p>Active</p>
         </div>
     </div>  
   </div>

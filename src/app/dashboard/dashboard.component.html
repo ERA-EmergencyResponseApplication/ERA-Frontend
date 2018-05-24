@@ -4,12 +4,14 @@
 </div>
 
 <div class="row">
-  <div class="col-md-5">
-    <app-emergencies *ngFor="let responseArea of responseAreas"
+  <div class="col-md-12">
+    <!-- <app-emergencies *ngFor="let responseArea of responseAreas"
     [respArea]="responseArea">
-    </app-emergencies> 
+    </app-emergencies>  -->
+    <app-emergency-events *ngFor="let responseArea of responseAreas" [respArea]="responseArea">
+    </app-emergency-events>
   </div>
-  <div class="col-md-7">
+  <!-- <div class="col-md-7">
     <router-outlet></router-outlet>
-  </div>
+  </div> -->
 </div>

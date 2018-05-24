@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmergencyService } from '../services/emergency.service';
 import { ResponseAreaService } from '../services/response-area.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Emergency } from '../models/Emergency';
 import { ResponseArea } from '../dashboard/ResponseArea';
 import { UserService } from '../services/user.service';
@@ -32,15 +32,18 @@ export class ViewEmergencyComponent implements OnInit {
   newResponse: UserResponse;
   userResponse: string;
   resolveVisible: boolean;
+  success: boolean;
+  alertMessage: string;
 
   constructor(private emergencyService: EmergencyService, private route: ActivatedRoute,
-    private responseAreaService: ResponseAreaService, private userService: UserService) { }
+    private responseAreaService: ResponseAreaService, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
     this.route.params.subscribe( (params: Params) => {
       this.emergencyId = +params['emergencyId'];
       this.getEmergency();
     });
+    this.alertMessage = 'Thank you for responding to the emergency';
   }
 
   getEmergency() {
@@ -108,12 +111,22 @@ export class ViewEmergencyComponent implements OnInit {
       this.newResponse = new UserResponse(status, this.emergency.id, userId, this.response[0].id);
       this.emergencyService.updateResponse(this.emergency.id, this.newResponse, this.newResponse.id);
       this.userResponse = status;
+      this.alertMessage = 'Updated the response for the emergency';
+      this.success = true;
+      setTimeout(() => {
+        this.router.navigate(['dashboard']);
+      }, 2000);
     } else {
       this.newResponse = new UserResponse(status, this.emergency.id, userId);
       this.emergencyService.createResponse(this.emergency.id, this.newResponse);
       this.getResponderStatus(this.emergency.id, userId);
       this.userResponse = status;
       this.count += 1;
+      this.alertMessage = 'Thank you for responding to the emergency';
+      this.success = true;
+      setTimeout(() => {
+        this.router.navigate(['dashboard']);
+      }, 2000);
     }
   }
 

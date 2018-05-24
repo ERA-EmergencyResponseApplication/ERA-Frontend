@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            {{ respArea.name }}
+        </div>
+        <div class="panel-body">
+          <p-dataView #dv [value]="emergencies">
+              <ng-template let-emergency pTemplate="listItem">
+                <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+                  <div class="ui-g-12 ui-md-3" style="text-align:center">
+                    <img src="assets/icons/{{emergency.type}}.png" style="max-height:80px;">
+                  </div>
+                  <div class="ui-g-12 ui-md-7 emergency-details">
+                      <div class="ui-g">
+                          <div class="ui-g-2 ui-sm-6">Type: </div>
+                          <div class="ui-g-10 ui-sm-6"><b>{{emergency.type}}</b></div>
+            
+                          <div class="ui-g-2 ui-sm-6">Location: </div>
+                          <div class="ui-g-10 ui-sm-6"><b>{{emergency.location_description}}</b></div>
+            
+                          <div class="ui-g-2 ui-sm-6">Address: </div>
+                          <div class="ui-g-10 ui-sm-6"><b>{{respArea.address}}</b></div> 
+                      </div>
+                  </div>
+                  <div class="ui-g-12 ui-md-2 search-icon">
+                      <button pButton type="button" label="View More" icon="fa-info" (click)="goToEmergency(emergency)"></button>
+                  </div>
+                </div>                 
+              </ng-template>
+            </p-dataView>
+        </div>
+      </div>
+    </div>
+  </div>
