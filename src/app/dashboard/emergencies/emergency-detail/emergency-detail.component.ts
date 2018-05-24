@@ -3,7 +3,7 @@ import { Emergency } from '../../../models/Emergency';
 import { ResponseArea } from '../../ResponseArea';
 import { EmergencyService } from '../../../services/emergency.service';
 import { ResponseAreaService } from '../../../services/response-area.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-emergency-detail',
@@ -25,7 +25,7 @@ export class EmergencyDetailComponent implements OnInit {
   respAreaId: number;
 
   constructor(private emergencyService: EmergencyService, private route: ActivatedRoute,
-  private respAreaService: ResponseAreaService) { }
+  private respAreaService: ResponseAreaService, private router: Router) { }
 
   ngOnInit() {
     this.route.params.
@@ -59,5 +59,9 @@ export class EmergencyDetailComponent implements OnInit {
     this.address = responseData.address;
     this.name = responseData.name;
     this.cityZip = responseData.city + ' ' + responseData.zip;
+  }
+
+  goToEmergency() {
+    this.router.navigate(['events', this.emergency.id]);
   }
 }
