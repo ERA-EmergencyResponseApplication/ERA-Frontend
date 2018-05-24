@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
   areas: any[];
   responseAreas: ResponseArea[];
   pageMode: string;
+  userAreas: any[];
   public form: FormGroup;
 
   constructor(
@@ -43,6 +44,7 @@ export class RegisterComponent implements OnInit {
     this.rAreas = [];
     this.areas = [];
     this.user = {};
+    this.userAreas = [];
 
     _responseArea.getResponseAreas()
       .then(response => {
@@ -55,9 +57,14 @@ export class RegisterComponent implements OnInit {
     const userId: number = Number(localStorage.getItem('userId'));
     if (userId && userId > 0) {
       this.pageMode = 'update';
+      this.user.responseAreas = [];
       _user.getUser(userId).then(
         (response) => {
           this.user = response.data;
+
+          this._responseArea.getResponseAreasForUser(userId).then((userAreas) => {
+            this.user.responseAreas = userAreas.data;
+          });
         }
       );
     } else {
@@ -70,10 +77,10 @@ export class RegisterComponent implements OnInit {
     this.collapse = true;
 
     if (this.pageMode === 'update') {
-      const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
-      this.user.email, this.user.cellNumber, this.user.id);
-      this._user.updateUser(u);
-      this.AlertMsg = 'User updated successfully!';
+          const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
+            this.user.email, this.user.cellNumber, this.user.id);
+          this._user.updateUser(u);
+          this.AlertMsg = 'User updated successfully!';
     } else {
       const u = new Responder(this.user.firstName, this.user.lastName, '', this.user.password, this.user.responseAreas,
         this.user.email, this.user.cellNumber);
