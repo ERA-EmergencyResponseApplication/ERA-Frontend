@@ -33,6 +33,9 @@ export class UserService extends AbstractService {
     return this.$put(endpoints.updateUser(user.id), user).bind(this)
       .then((response) => {
         console.log(response);
+        const endpointList = user.responseAreas.map(area =>
+          this.$put(endpoints.addSubscriberToResponseArea(area, user.id)).bind(this));
+        return this.$all(endpointList);
       });
   }
 
