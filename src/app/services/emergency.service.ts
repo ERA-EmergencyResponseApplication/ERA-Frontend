@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import AbstractService from './abstract.service';
 import endpoints from '../config/endpoints';
 import { Emergency } from '../models/Emergency';
+import { UserResponse } from '../models/UserResponse';
 
 @Injectable()
 export class EmergencyService extends AbstractService {
@@ -37,5 +38,21 @@ export class EmergencyService extends AbstractService {
 
     updateEmergency(emergencyId: number, emergency: Emergency) {
       return this.$put(endpoints.getEmergency(emergencyId), emergency).bind(this);
+    }
+
+    getEmergencyResponderCount(id: number) {
+      return this.$get(endpoints.getRespondersCount(id)).bind(this);
+    }
+
+    getEmergencyResponseForUser(eId: number, rId: number) {
+      return this.$get(endpoints.getEmergencyResponseByUser(eId, rId)).bind(this);
+    }
+
+    createResponse(eId: number, userResponse: UserResponse) {
+      return this.$post(endpoints.createEmergencyResponse(eId), userResponse).bind(this);
+    }
+
+    updateResponse(eId: number, userResponse: UserResponse, rId: number) {
+      return this.$put(endpoints.updateEmergencyResponse(eId, rId), userResponse).bind(this);
     }
 }

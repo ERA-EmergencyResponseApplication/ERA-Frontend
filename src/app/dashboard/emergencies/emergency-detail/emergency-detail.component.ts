@@ -62,6 +62,6 @@ export class EmergencyDetailComponent implements OnInit {
   }
 
   goToEmergency() {
-    this.router.navigate(['events',this.emergency.id]);
+    this.router.navigate(['events', this.emergency.id]);
   }
 }
